@@ -1,29 +1,29 @@
 package theo.contact_app.model;
 
 public class Address {
-	private String numero; //String car par ex 10b.
-	private String rue; 
+	private String numero; // String car par ex 10b.
+	private String rue;
 	private String ville;
-	private String pays; 
+	private String pays;
 	private String région;
 	private int codePostal;
-	
+
 	public Address() {
-		numero ="";
-		rue="";
-		ville="";
-		région="";
-		pays="";
-		codePostal=-1;
+		numero = "";
+		rue = "";
+		ville = "";
+		région = "";
+		pays = "";
+		codePostal = -1;
 	}
-	
+
 	public Address(String numero, String rue, String ville, String pays, String région, int codePostal) {
-		this.numero=numero;
-		this.rue=rue;
-		this.ville=ville;
-		this.pays=pays;
-		this.région=région;
-		this.codePostal=codePostal;
+		this.numero = numero;
+		this.rue = rue;
+		this.ville = ville;
+		this.pays = pays;
+		this.région = région;
+		this.codePostal = codePostal;
 	}
 
 	/**
@@ -109,11 +109,12 @@ public class Address {
 	public void setCodePostal(int codePostal) {
 		this.codePostal = codePostal;
 	}
-	
+
 	@Override
 	public final String toString() {
-		String address="";
-		address = getNumero()+" "+ getRue()+" "+ getCodePostal()+ " "+ getVille()+ " "+ getRégion()+" "+getPays();
+		String address = "";
+		address = getNumero() + " " + getRue() + " " + getCodePostal() + " " + getVille() + " " + getRégion() + " "
+				+ getPays();
 		return address;
 	}
 }
