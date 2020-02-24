@@ -1,8 +1,7 @@
 package theo.contact_app.service;
 
-import isen.quiz.service.StageService;
-import isen.quiz.service.ViewService;
-import isen.quiz.service.StageService.StageServiceHolder;
+import theo.contact_app.service.StageService;
+import theo.contact_app.service.ViewService;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
