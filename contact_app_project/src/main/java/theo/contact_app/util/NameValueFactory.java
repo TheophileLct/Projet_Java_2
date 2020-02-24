@@ -1,4 +1,4 @@
-package contact_app.util;
+package theo.contact_app.util;
 
 public class NameValueFactory {
 

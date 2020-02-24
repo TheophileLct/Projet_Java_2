@@ -1,4 +1,4 @@
-package contact_app.view;
+package theo.contact_app.view;
 
 public class ContactOverviewController {
 
