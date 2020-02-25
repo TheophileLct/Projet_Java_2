@@ -1,5 +1,9 @@
 package theo.contact_app.model;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.time.LocalDate;
 
 import theo.contact_app.model.Address;
@@ -160,6 +164,31 @@ public class Contact {
 		string += "BDAY:" + getBirth_date() + "\n";
 		string += "END:VCARD";
 		return string;
+	}
+	
+	public final void export(File directory)
+	{
+		File file = new File(directory, getFirstname() + "_" + getLastname() + ".vcf");
+		try(Writer writer = new OutputStreamWriter(new FileOutputStream(file.toString()), "UTF-8"))
+		{
+			String string = "\n";
+			string += "BEGIN:VCARD" + "\n";
+			string += "VERSION:4.0" + "\n";
+			string += "UID:" + getIdperson() + "\n";
+			string += "N:" + getLastname() + ";" + getFirstname() + ";" + "" + ";" + "" +  ";" + "" + "\n";
+			string += "FN:" + getFirstname() + " " + getLastname() + "\n";
+			string += "NICKNAME:" + getNickname() + "\n";
+			string += "TEL;" + "TYPE=home,voice;" + "VALUE=uri:tel:" + getPhone_number() + "\n";
+			string += "EMAIL:" + getEmail_address() + "\n";
+			string += "ADR;" + "TYPE=HOME;" + "LABEL=" + getAddress();
+			string += "BDAY:" + getBirth_date() + "\n";
+			string += "END:VCARD";
+			writer.write(string);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	//Import et export de contact à faire. ToString a retoucher certainement qd on aura + d'info. 
