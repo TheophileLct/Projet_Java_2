@@ -191,6 +191,6 @@ public class Contact {
 		}
 	}
 
-	//Import et export de contact à faire. ToString a retoucher certainement qd on aura + d'info. 
+	//Import de contact à faire. ToString a retoucher certainement qd on aura + d'info. 
 	
 }
