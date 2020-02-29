@@ -9,4 +9,6 @@ public class HomeScreenController {
 	public void handleLaunchButton() throws Exception {
 		StageService.showView(ViewService.getView("ContactOverview"));
 	}
+	
+	
 }

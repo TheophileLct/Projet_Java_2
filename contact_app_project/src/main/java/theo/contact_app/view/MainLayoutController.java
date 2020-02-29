@@ -5,10 +5,7 @@ import theo.contact_app.service.ViewService;
 import javafx.scene.Node;
 
 public class MainLayoutController {
-	public void closeApplication() {
-		StageService.closeStage();
-	}
-
+	
 	/**
 	 * Method allowing us to go back to the home screen
 	 */
@@ -21,6 +18,20 @@ public class MainLayoutController {
 	 * Method allowing us to go to the Contact view
 	 */
 	public void gotoContactOverview() {
+		StageService.showView(ViewService.getView("ContactOverview"));
+	}
+	
+	/**
+	 * Method allowing to quit the application
+	 */
+	public void gotoCloseApplication() {
+		StageService.closeStage();
+	}
+	
+	/**
+	 * Method allowing to reach the help page
+	 */
+	public void gotoHelpPage() {
 		StageService.showView(ViewService.getView("ContactOverview"));
 	}
 }

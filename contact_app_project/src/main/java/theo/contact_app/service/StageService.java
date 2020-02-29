@@ -27,9 +27,11 @@ public class StageService {
 		return StageServiceHolder.INSTANCE.primaryStage;
 	}
 
+	@SuppressWarnings("restriction")
 	public static void initPrimaryStage(Stage primaryStage) {
 		primaryStage.setTitle("Contact App");
 		primaryStage.setScene(new Scene(StageServiceHolder.INSTANCE.mainLayout));
+		
 		primaryStage.show();
 
 		StageServiceHolder.INSTANCE.primaryStage = primaryStage;
