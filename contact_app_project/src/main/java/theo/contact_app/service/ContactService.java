@@ -10,13 +10,13 @@ public class ContactService {
 	private ObservableList<Contact> contacts;
 	private ObservableList<Contact> contactsDataBase; //Quand on aura fait la bdd 
 	
-	private ContactService() {
+	protected ContactService() {
 		contactsDataBase = FXCollections.observableArrayList();
 		contacts=FXCollections.observableArrayList();
 		contacts.add(new Contact(1, "lastname1", "firstname1", "nickname1", "0665487562", new Address("", "", "address1", "", "", -1), "email_address_1", LocalDate.now()));
 	}
 	
-	private static class ContactServiceHolder {
+	protected static class ContactServiceHolder {
 		private static ContactService INSTANCE;
 	}
 	

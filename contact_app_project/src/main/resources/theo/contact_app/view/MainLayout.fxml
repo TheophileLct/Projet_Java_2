@@ -8,7 +8,7 @@
 
 <BorderPane prefHeight="470.0" prefWidth="650.0" stylesheets="@contact.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theo.contact_app.view.MainLayoutController">
 	<top>
-		<MenuBar nodeOrientation="RIGHT_TO_LEFT" stylesheets="@contact.css" BorderPane.alignment="CENTER">
+		<MenuBar nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: grey;" stylesheets="@contact.css" BorderPane.alignment="CENTER">
 			<menus>
 				<Menu mnemonicParsing="false" text="Menu">
 					<items>

@@ -1,14 +1,27 @@
 /* change la couleur de la barre menu*/
 .menu-bar {
-    -fx-background-color: derive(#e10577,20%);
+    -fx-background-color: grey
    
 }
 
 /* change la couleur du conteneur de texte de la barre menu*/
 .menu-bar > .container > .menu-button {
-    -fx-background-color: rgb(235, 147, 215);
+    -fx-background-color:rgb(69, 61, 64);
 }
 /* change la couleur du texte de la barre menu */
 .menu-bar > .container > .menu-button > .label {
     -fx-text-fill: white;
+}
+
+.anchor {
+    -fx-background-image:url('leaf.jpg');
+    -fx-border-color: yellow;
+}
+
+.anchor1 {
+    -fx-background-color:#9FC131FF;
+}
+
+.anchor2 {
+    -fx-background-color:rgb(245, 149, 183);
 }

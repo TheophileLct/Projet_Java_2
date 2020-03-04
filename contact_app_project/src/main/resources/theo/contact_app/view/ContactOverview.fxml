@@ -22,56 +22,60 @@
    <children>
       <SplitPane dividerPositions="0.4737654320987654" prefHeight="450.0" prefWidth="650.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="347.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="347.0" styleClass="anchor1" stylesheets="@contact.css">
                <children>
-                  <ImageView fx:id="changePhotoImageView" fitHeight="25.0" fitWidth="14.0" layoutX="24.0" layoutY="13.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
-                     <image>
-                        <Image url="@../image/change-photo.PNG" />
-                     </image>
-                  </ImageView>
-                  <TextField fx:id="lastNameField" editable="false" layoutX="24.0" layoutY="109.0" mouseTransparent="true" promptText="Last Name" />
-                  <TextField fx:id="firstNameField" editable="false" layoutX="24.0" layoutY="73.0" mouseTransparent="true" promptText="First Name" />
-                  <TextField fx:id="nicknameField" editable="false" layoutX="24.0" layoutY="149.0" mouseTransparent="true" promptText="Nickname" />
-                  <TextField fx:id="phoneNumberField" editable="false" layoutX="24.0" layoutY="261.0" mouseTransparent="true" promptText="Phone number" />
-                  <TextField fx:id="streetAddressField" editable="false" layoutX="76.0" layoutY="224.0" mouseTransparent="true" prefHeight="25.0" prefWidth="194.0" promptText="Street Adress" />
-                  <TextField fx:id="numberField" editable="false" layoutX="24.0" layoutY="224.0" mouseTransparent="true" prefHeight="27.0" prefWidth="41.0" promptText="Number" />
-                  <TextField fx:id="cityAddressField" editable="false" layoutX="129.0" layoutY="190.0" mouseTransparent="true" prefHeight="25.0" prefWidth="89.0" promptText="City" />
-                  <TextField fx:id="countryAddressField" editable="false" layoutX="24.0" layoutY="190.0" mouseTransparent="true" prefHeight="25.0" prefWidth="97.0" promptText="Country" />
-                  <TextField fx:id="emailAddressField" editable="false" layoutX="24.0" layoutY="298.0" mouseTransparent="true" promptText="email" />
-                  <DatePicker fx:id="birthDatePicker" editable="false" layoutX="24.0" layoutY="337.0" mouseTransparent="true" prefHeight="25.0" prefWidth="149.0" promptText="Birthdate" />
-                  <Button fx:id="saveButton" disable="true" layoutX="161.0" layoutY="398.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save" />
-                  <Button fx:id="cancelButton" disable="true" layoutX="224.0" layoutY="398.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Cancel" />
-                  <ImageView fx:id="photoImageView" fitHeight="56.0" fitWidth="54.0" layoutX="220.0" layoutY="27.0" mouseTransparent="true" onMouseClicked="#changePhoto" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@crayon.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="56.0" fitWidth="57.0" layoutX="87.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
-	                   <image>
-	  					  <Image url="@melo.png" />
-	  				  </image>
-  				  </ImageView>
+                  <AnchorPane layoutX="16.0" layoutY="70.0" prefHeight="314.0" prefWidth="271.0" styleClass="anchor" stylesheets="@contact.css">
+                     <children>
+                        <DatePicker fx:id="birthDatePicker" editable="false" layoutX="62.0" layoutY="264.0" mouseTransparent="true" prefHeight="25.0" prefWidth="149.0" promptText="Birthdate" />
+                        <TextField fx:id="emailAddressField" editable="false" layoutX="56.0" layoutY="230.0" mouseTransparent="true" promptText="email" />
+                        <TextField fx:id="countryAddressField" editable="false" layoutX="137.0" layoutY="128.0" mouseTransparent="true" prefHeight="25.0" prefWidth="97.0" promptText="Country" />
+                        <ImageView fx:id="changePhotoImageView" fitHeight="25.0" fitWidth="14.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../image/change-photo.PNG" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="lastNameField" editable="false" layoutX="56.0" layoutY="17.0" mouseTransparent="true" promptText="Last Name" />
+                        <TextField fx:id="firstNameField" editable="false" layoutX="56.0" layoutY="54.0" mouseTransparent="true" promptText="First Name" />
+                        <TextField fx:id="nicknameField" editable="false" layoutX="56.0" layoutY="91.0" mouseTransparent="true" promptText="Nickname" />
+                        <TextField fx:id="phoneNumberField" editable="false" layoutX="56.0" layoutY="195.0" mouseTransparent="true" promptText="Phone number" />
+                        <TextField fx:id="streetAddressField" editable="false" layoutX="68.0" layoutY="161.0" mouseTransparent="true" prefHeight="25.0" prefWidth="194.0" promptText="Street Adress" />
+                        <TextField fx:id="numberField" editable="false" layoutX="20.0" layoutY="161.0" mouseTransparent="true" prefHeight="27.0" prefWidth="41.0" promptText="Number" />
+                        <TextField fx:id="cityAddressField" editable="false" layoutX="40.0" layoutY="128.0" mouseTransparent="true" prefHeight="25.0" prefWidth="89.0" promptText="City" />
+                        <ImageView fx:id="photoImageView" fitHeight="56.0" fitWidth="59.0" layoutX="215.0" layoutY="274.0" mouseTransparent="true" onMouseClicked="#changePhoto" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@crayon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="saveButton" disable="true" layoutX="178.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleSaveButton" style="-fx-background-color: rgb(255, 255, 167);" text="Save" />
+                  <Button fx:id="cancelButton" disable="true" layoutX="232.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleDeleteButton" style="-fx-background-color: rgb(255, 255, 167);" text="Cancel" />
+                  <ComboBox fx:id="categoryComboBox" layoutX="74.0" layoutY="14.0" mouseTransparent="true" prefWidth="150.0" promptText="ComboBox?" style="-fx-background-color: rgb(255, 255, 167);" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="100.0" styleClass="anchor2" stylesheets="@contact.css">
                <children>
-                  <Button fx:id="updateButton" disable="true" layoutX="116.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleUpdateButton" text="Update" />
-                  <Button fx:id="deleteButton" disable="true" layoutX="203.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete" />
-                  <Button fx:id="addButton" layoutX="47.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleAddButton" text="Add" />
-                  <TableView fx:id="contactTable" layoutX="16.0" layoutY="25.0" prefHeight="300.0" prefWidth="271.0">
+                  <Button fx:id="updateButton" disable="true" layoutX="139.0" layoutY="396.0" mnemonicParsing="false" onAction="#handleUpdateButton" style="-fx-background-color: derive(#e10577,20%);;" text="Update" textFill="WHITE" />
+                  <Button fx:id="deleteButton" disable="true" layoutX="223.0" layoutY="396.0" mnemonicParsing="false" onAction="#handleDeleteButton" style="-fx-background-color: derive(#e10577,20%);;" text="Delete" textFill="WHITE" />
+                  <Button fx:id="addButton" layoutX="73.0" layoutY="396.0" mnemonicParsing="false" onAction="#handleAddButton" style="-fx-background-color: derive(#e10577,20%);;" text="Add" textFill="WHITE" />
+                  <TableView fx:id="contactTable" layoutX="33.0" layoutY="87.0" prefHeight="300.0" prefWidth="271.0">
                     <columns>
-                      <TableColumn fx:id="nicknameColumn" prefWidth="104.0" text="Nickname" />
                       <TableColumn fx:id="nameColumn" prefWidth="166.0" text="Name" />
+                      <TableColumn fx:id="nicknameColumn" prefWidth="104.0" text="Nickname" />
                     </columns>
                   </TableView>
-                  <TextField fx:id="filterTextField" layoutX="36.0" layoutY="368.0" prefHeight="25.0" prefWidth="149.0" promptText="Nickname / Name" />
-                  <ComboBox fx:id="filterComboBox" layoutX="36.0" layoutY="402.0" prefHeight="25.0" prefWidth="149.0" />
-                  <Button fx:id="filterButton" layoutX="207.0" layoutY="380.0" mnemonicParsing="false" onAction="#handleFilterButton" prefHeight="37.0" prefWidth="52.0" text="Filter">
+                  <TextField fx:id="filterTextField" layoutX="34.0" layoutY="14.0" prefHeight="25.0" prefWidth="149.0" promptText="Nickname / Name" />
+                  <ComboBox fx:id="filterComboBox" layoutX="34.0" layoutY="49.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: derive(#e10577,20%);;" />
+                  <Button fx:id="filterButton" layoutX="203.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleFilterButton" prefHeight="27.0" prefWidth="41.0" style="-fx-background-color: derive(#e10577,20%);;" text="Filter" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <ComboBox fx:id="categoryComboBox" layoutX="13.0" layoutY="1.0" mouseTransparent="true" prefWidth="150.0" promptText="ComboBox?" />
+                  <ImageView fitHeight="76.0" fitWidth="69.0" layoutX="262.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+	                   <image>
+	  					  <Image url="@melo.png" />
+	  				  </image>
+  				  </ImageView>
                </children>
             </AnchorPane>
         </items>

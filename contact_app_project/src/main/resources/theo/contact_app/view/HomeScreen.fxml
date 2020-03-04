@@ -13,22 +13,26 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theo.contact_app.view.HomeScreenController">
+<AnchorPane prefHeight="450.0" prefWidth="650.0" style="-fx-background-color: #9FC131FF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theo.contact_app.view.HomeScreenController">
    <children>
-      <ImageView fitHeight="263.0" fitWidth="426.0" layoutX="112.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="105.08241271972656" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="105.0">
-      <image>
-  		  <Image url="@w1.jpg" />
-  	  </image>
-	  </ImageView>
-      <Button layoutX="258.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleLaunchButton" prefHeight="31.0" prefWidth="134.0" text="Start Consulting" textAlignment="CENTER" textFill="#e11a5c">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
-      <Text fill="#cd1e5b" layoutX="199.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact App" AnchorPane.bottomAnchor="359.6279983520508" AnchorPane.leftAnchor="199.0" AnchorPane.rightAnchor="199.04202270507812" AnchorPane.topAnchor="33.0">
-         <font>
-            <Font name="Avenir Black" size="42.0" />
-         </font>
-      </Text>
+      <AnchorPane layoutX="60.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="530.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="263.0" fitWidth="426.0" layoutX="52.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="50.08241271972656" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="90.0">
+            <image>
+        		  <Image url="@w1.jpg" />
+        	  </image>
+      	  </ImageView>
+            <Text fill="#cd1e5b" layoutX="139.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact App" AnchorPane.bottomAnchor="308.6279983520508" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="139.04202270507812" AnchorPane.topAnchor="14.0">
+               <font>
+                  <Font name="Avenir Black" size="42.0" />
+               </font>
+            </Text>
+            <Button layoutX="198.0" layoutY="314.0" mnemonicParsing="false" onAction="#handleLaunchButton" prefHeight="31.0" prefWidth="134.0" text="Start Consulting" textAlignment="CENTER" textFill="#e11a5c">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
