@@ -24,34 +24,33 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="347.0">
                <children>
-                  <Label layoutX="15.0" layoutY="341.0" text="Birth date">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <ImageView fx:id="photoImageView" fitHeight="57.0" fitWidth="51.0" layoutX="24.0" layoutY="13.0" mouseTransparent="true" onMouseClicked="#changePhoto" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/default-photo.jpg" />
-                     </image>
-                  </ImageView>
                   <ImageView fx:id="changePhotoImageView" fitHeight="25.0" fitWidth="14.0" layoutX="24.0" layoutY="13.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
                         <Image url="@../image/change-photo.PNG" />
                      </image>
                   </ImageView>
-                  <ComboBox fx:id="categoryComboBox" layoutX="132.0" layoutY="29.0" mouseTransparent="true" prefWidth="150.0" promptText="Last Name?" />
-                  <TextField fx:id="lastNameField" editable="false" layoutX="132.0" layoutY="77.0" mouseTransparent="true" promptText="Last Name" />
-                  <TextField fx:id="firstNameField" editable="false" layoutX="132.0" layoutY="112.0" mouseTransparent="true" promptText="First Name" />
-                  <TextField fx:id="nicknameField" editable="false" layoutX="132.0" layoutY="147.0" mouseTransparent="true" promptText="Nickname" />
-                  <TextField fx:id="phoneNumberField" editable="false" layoutX="132.0" layoutY="182.0" mouseTransparent="true" promptText="Phone number" />
-                  <TextField fx:id="streetAddressField" editable="false" layoutX="107.0" layoutY="217.0" mouseTransparent="true" prefHeight="25.0" prefWidth="194.0" promptText="Street Adress" />
-                  <TextField fx:id="numberField" editable="false" layoutX="107.0" layoutY="244.0" mouseTransparent="true" prefHeight="25.0" prefWidth="65.0" promptText="Number" />
-                  <TextField fx:id="cityAddressField" editable="false" layoutX="107.0" layoutY="271.0" mouseTransparent="true" prefHeight="25.0" prefWidth="89.0" promptText="City" />
-                  <TextField fx:id="countryAddressField" editable="false" layoutX="204.0" layoutY="271.0" mouseTransparent="true" prefHeight="25.0" prefWidth="97.0" promptText="Country" />
-                  <TextField fx:id="emailAddressField" editable="false" layoutX="132.0" layoutY="306.0" mouseTransparent="true" promptText="email" />
-                  <DatePicker fx:id="birthDatePicker" editable="false" layoutX="132.0" layoutY="341.0" mouseTransparent="true" prefHeight="25.0" prefWidth="149.0" />
-                  <Button fx:id="saveButton" disable="true" layoutX="80.0" layoutY="390.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save" />
-                  <Button fx:id="cancelButton" disable="true" layoutX="162.0" layoutY="390.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Cancel" />
+                  <TextField fx:id="lastNameField" editable="false" layoutX="24.0" layoutY="109.0" mouseTransparent="true" promptText="Last Name" />
+                  <TextField fx:id="firstNameField" editable="false" layoutX="24.0" layoutY="73.0" mouseTransparent="true" promptText="First Name" />
+                  <TextField fx:id="nicknameField" editable="false" layoutX="24.0" layoutY="149.0" mouseTransparent="true" promptText="Nickname" />
+                  <TextField fx:id="phoneNumberField" editable="false" layoutX="24.0" layoutY="261.0" mouseTransparent="true" promptText="Phone number" />
+                  <TextField fx:id="streetAddressField" editable="false" layoutX="76.0" layoutY="224.0" mouseTransparent="true" prefHeight="25.0" prefWidth="194.0" promptText="Street Adress" />
+                  <TextField fx:id="numberField" editable="false" layoutX="24.0" layoutY="224.0" mouseTransparent="true" prefHeight="27.0" prefWidth="41.0" promptText="Number" />
+                  <TextField fx:id="cityAddressField" editable="false" layoutX="129.0" layoutY="190.0" mouseTransparent="true" prefHeight="25.0" prefWidth="89.0" promptText="City" />
+                  <TextField fx:id="countryAddressField" editable="false" layoutX="24.0" layoutY="190.0" mouseTransparent="true" prefHeight="25.0" prefWidth="97.0" promptText="Country" />
+                  <TextField fx:id="emailAddressField" editable="false" layoutX="24.0" layoutY="298.0" mouseTransparent="true" promptText="email" />
+                  <DatePicker fx:id="birthDatePicker" editable="false" layoutX="24.0" layoutY="337.0" mouseTransparent="true" prefHeight="25.0" prefWidth="149.0" promptText="Birthdate" />
+                  <Button fx:id="saveButton" disable="true" layoutX="161.0" layoutY="398.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save" />
+                  <Button fx:id="cancelButton" disable="true" layoutX="224.0" layoutY="398.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Cancel" />
+                  <ImageView fx:id="photoImageView" fitHeight="56.0" fitWidth="54.0" layoutX="220.0" layoutY="27.0" mouseTransparent="true" onMouseClicked="#changePhoto" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@crayon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="56.0" fitWidth="57.0" layoutX="87.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
+	                   <image>
+	  					  <Image url="@melo.png" />
+	  				  </image>
+  				  </ImageView>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="100.0">
@@ -72,6 +71,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
+                  <ComboBox fx:id="categoryComboBox" layoutX="13.0" layoutY="1.0" mouseTransparent="true" prefWidth="150.0" promptText="ComboBox?" />
                </children>
             </AnchorPane>
         </items>
