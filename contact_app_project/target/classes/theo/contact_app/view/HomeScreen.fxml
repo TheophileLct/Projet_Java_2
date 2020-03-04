@@ -13,22 +13,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="381.0" prefWidth="662.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theo.contact_app.view.HomeScreenController">
+<AnchorPane prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theo.contact_app.view.HomeScreenController">
    <children>
-      <Text blendMode="OVERLAY" fill="#cd1e5b" layoutX="214.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact App" textAlignment="CENTER" AnchorPane.leftAnchor="214.0" AnchorPane.rightAnchor="240.04202270507812" AnchorPane.topAnchor="63.0">
-         <font>
-            <Font name="Avenir Black" size="42.0" />
-         </font>
-      </Text>
-      <Button layoutX="295.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleLaunchButton" text="Start Consulting" textAlignment="CENTER" textFill="#e11a5c">
-         <effect>
-            <DropShadow />
-         </effect></Button>
-      <ImageView blendMode="COLOR_BURN" fitHeight="216.0" fitWidth="398.0" layoutX="151.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="263.0" fitWidth="426.0" layoutX="112.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="105.08241271972656" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="105.0">
       <image>
   		  <Image url="@w1.jpg" />
   	  </image>
 	  </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a41368" height="58.0" stroke="BLACK" strokeType="INSIDE" width="706.0" />
+      <Button layoutX="258.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleLaunchButton" prefHeight="31.0" prefWidth="134.0" text="Start Consulting" textAlignment="CENTER" textFill="#e11a5c">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Text fill="#cd1e5b" layoutX="199.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact App" AnchorPane.bottomAnchor="359.6279983520508" AnchorPane.leftAnchor="199.0" AnchorPane.rightAnchor="199.04202270507812" AnchorPane.topAnchor="33.0">
+         <font>
+            <Font name="Avenir Black" size="42.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="173.0" fitWidth="124.0" layoutX="14.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+       <image>
+  		  <Image url="@nook.png" />
+  	  </image>
+  	  </ImageView>
+      <ImageView fitHeight="173.0" fitWidth="124.0" layoutX="480.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+       <image>
+  		  <Image url="@marie.png" />
+  	  </image>
+  	  </ImageView>
+  	  <Text fill="#cd1e5b" layoutX="147.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This project was born from the collaboration of three ISEN students " textAlignment="CENTER" wrappingWidth="305.65203857421875">
+         <font>
+            <Font name="Avenir Black" size="12.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

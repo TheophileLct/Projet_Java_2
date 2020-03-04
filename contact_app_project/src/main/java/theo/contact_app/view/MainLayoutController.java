@@ -31,7 +31,7 @@ public class MainLayoutController {
 	/**
 	 * Method allowing to reach the help page
 	 */
-	public void gotoHelpPage() {
-		StageService.showView(ViewService.getView("ContactOverview"));
+	public void gotoAboutPage() {
+		StageService.showView(ViewService.getView("About"));
 	}
 }

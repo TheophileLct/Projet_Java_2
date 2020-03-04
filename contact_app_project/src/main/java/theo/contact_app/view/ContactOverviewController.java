@@ -42,7 +42,7 @@ public class ContactOverviewController {
 	TextField streetAddressField;
 	
 	@FXML
-	TextField pcAddressField;
+	TextField numberField;
 	
 	@FXML
 	TextField cityAddressField;
@@ -81,7 +81,7 @@ public class ContactOverviewController {
 	//ça c'est la partie pour valider et faire le filtrage dans la liste. 
 	@FXML
 	Button filterButton;
-	
+
 	Contact currentContact;
 	
 	private boolean newContact;
@@ -89,7 +89,7 @@ public class ContactOverviewController {
 	//Cette métgode permet de définir l'action du bouton ajouter, 
 	//On le créer, l'ajoute à la table et update la liste afficher pour qu'il apparait. 
 	@FXML
-	private void handleAddButton() {
+	public void handleAddButton() {
 		System.out.println("Add bouton");
 		Contact contact = new Contact();
 		ContactService.addContact(contact);
@@ -100,7 +100,7 @@ public class ContactOverviewController {
 	
 	//Cette méthode permet de définir l'action du bouton update
 	@FXML
-	private void handleUpdateButton() {
+	public void handleUpdateButton() {
 		System.out.println("Update bouton");
 		this.updatingContact(true);
 		this.disableButton(false, true);
@@ -109,7 +109,7 @@ public class ContactOverviewController {
 	//Cette méthode permet de définir l'action du bouton supprimer, il affiche un message pour demander si on est sur de vouloir 
 	//supprimer le contact. 
 	@FXML
-	private void handleDeleteButton() {
+	public void handleDeleteButton() {
 		System.out.println("Delete bouton");
 		Contact contact = this.contactTable.getSelectionModel().getSelectedItem();
 	    if (contact != null) {
@@ -129,7 +129,7 @@ public class ContactOverviewController {
 	
 	//Cette méthode permet de définir l'action du bouton sauvegarder
 	@FXML
-	private void handleSaveButton() {
+	public void handleSaveButton() {
 		System.out.println("Save bouton");
 		this.updatingContact(false);
 		this.disableButton(false, false);
@@ -139,18 +139,18 @@ public class ContactOverviewController {
 	}
 	
 	
-	private void saveContactDetails() {
+	public void saveContactDetails() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private void updatingContact(boolean b) {
+	public void updatingContact(boolean b) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	//Permet de désactiver les boutons quand on ne doit pas ou peut pas les utiliser. 
-	private void disableButton(boolean none, boolean disable) {
+	public void disableButton(boolean none, boolean disable) {
 		this.addButton.setDisable(disable);
 		this.updateButton.setDisable(none ? !disable : disable);
 		this.deleteButton.setDisable(none ? !disable : disable);
@@ -160,22 +160,12 @@ public class ContactOverviewController {
 	}
 	
 
-	
-	
-	
-	/**
-	 * Method allowing us to go back to the home screen
-	 */
-	public void gotoHome() {
-		Node root = ViewService.getView("HomeScreen");
-		StageService.showView(root);
+	public void handleFilterButton() {
+		
 	}
 	
-	/**
-	 * Method allowing to quit the application
-	 */
-	public void gotoCloseApplication() {
-		StageService.closeStage();
+	public void changePhoto() {
+		
 	}
 }
 
