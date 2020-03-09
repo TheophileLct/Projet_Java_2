@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="450.0" prefWidth="650.0" style="-fx-background-color: #9FC131FF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="contact_app.view.HomeScreenController">
+<AnchorPane prefHeight="450.0" prefWidth="650.0" style="-fx-background-color: #9FC131FF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theo.contact_app.view.HomeScreenController">
    <children>
       <AnchorPane layoutX="60.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="530.0" style="-fx-background-color: white;">
          <children>
