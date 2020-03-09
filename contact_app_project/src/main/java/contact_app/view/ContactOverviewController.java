@@ -163,7 +163,7 @@ public class ContactOverviewController implements Initializable {
 	@FXML
 	public void clickItem(MouseEvent event)
 	{
-		if(!onUpdateMode)
+		if(!onUpdateMode && contactTable.getSelectionModel().getSelectedItem() != null)
 		{
 			this.lastNameField.setText(contactTable.getSelectionModel().getSelectedItem().getLastname());
 			this.firstNameField.setText(contactTable.getSelectionModel().getSelectedItem().getFirstname());
