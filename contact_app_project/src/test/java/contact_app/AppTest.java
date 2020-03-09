@@ -1,4 +1,4 @@
-package theo.contact_app;
+package contact_app;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

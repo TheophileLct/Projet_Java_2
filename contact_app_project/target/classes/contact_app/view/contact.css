@@ -25,7 +25,3 @@
 .anchor2 {
     -fx-background-color:rgb(245, 149, 183);
 }
-
-.table-view .column-header-background .filler {
-    -fx-background-color:  rgb(255, 155, 210); 
-}

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="470.0" prefWidth="650.0" stylesheets="@contact.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="contact_app.view.MainLayoutController">
+<BorderPane prefHeight="470.0" prefWidth="650.0" stylesheets="@contact.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theo.contact_app.view.MainLayoutController">
 	<top>
 		<MenuBar nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: grey;" stylesheets="@contact.css" BorderPane.alignment="CENTER">
 			<menus>
