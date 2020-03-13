@@ -13,6 +13,7 @@ import java.util.List;
 
 import contact_app.model.Address;
 
+
 public class Contact {
 	private int idperson;
 	private String lastname;
@@ -196,7 +197,7 @@ public class Contact {
 	 * @param directory
 	 */
 	public final void export(File directory)
-	{
+	{		
 		File file = new File(directory, getFirstname() + "_" + getLastname() + ".vcf");
 		try(Writer writer = new OutputStreamWriter(new FileOutputStream(file.toString()), "UTF-8"))
 		{
@@ -209,7 +210,7 @@ public class Contact {
 			string += "NICKNAME:" + getNickname() + "\n";
 			string += "TEL;" + "TYPE=home,voice;" + "VALUE=uri:tel:" + getPhone_number() + "\n";
 			string += "EMAIL:" + getEmail_address() + "\n";
-			string += "ADR;" + "TYPE=HOME;" + "LABEL=" + getAddress();
+			string += "ADR;" + "TYPE=HOME;" + "LABEL=" + getAddress() + "\n";
 			string += "BDAY:" + getBirth_date() + "\n";
 			string += "END:VCARD";
 			writer.write(string);
@@ -292,21 +293,20 @@ public class Contact {
 						String ville = "";
 						String rue = "";
 						String numero = "";
-						int codePostal =4444;
 						switch(dataSeperate.length)
 						{
 							case 9:
 								pays = dataSeperate[8];
 							case 7:
 								région = dataSeperate[6];
-							case 6:
+							case 8:
 								ville = dataSeperate[5];
-							case 5:
+							case 6:
 								rue = dataSeperate[4];
-							case 4:
+							case 5:
 								numero = dataSeperate[3];
 						}
-						address = new Address(numero,rue, ville,pays,région, codePostal);
+						address = new Address(numero,rue, ville,pays);
 						break;
 				}
 			}

@@ -27,7 +27,10 @@ public class StageService {
 		return StageServiceHolder.INSTANCE.primaryStage;
 	}
 
-	@SuppressWarnings("restriction")
+	
+	/**
+	 * @param primaryStage
+	 */
 	public static void initPrimaryStage(Stage primaryStage) {
 		primaryStage.setTitle("Contact App");
 		primaryStage.setScene(new Scene(StageServiceHolder.INSTANCE.mainLayout));
@@ -37,10 +40,17 @@ public class StageService {
 		StageServiceHolder.INSTANCE.primaryStage = primaryStage;
 	}
 
+	
+	/** Affiche la vue
+	 * @param rootElement
+	 */
 	public static void showView(Node rootElement) {
 		StageServiceHolder.INSTANCE.mainLayout.setCenter(rootElement);
 	}
 
+	/**
+	 *  Methode qui permet de fermer la Stage.
+	 */
 	public static void closeStage() {
 		StageServiceHolder.INSTANCE.primaryStage
 				.fireEvent(new WindowEvent(StageServiceHolder.INSTANCE.primaryStage, WindowEvent.WINDOW_CLOSE_REQUEST));

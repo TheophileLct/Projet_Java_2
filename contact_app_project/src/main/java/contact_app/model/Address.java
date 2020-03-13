@@ -11,7 +11,6 @@ public class Address {
 	private String ville;
 	private String pays;
 	private String région;
-	private int codePostal;
 
 	public Address() {
 		numero = "";
@@ -19,18 +18,15 @@ public class Address {
 		ville = "";
 		région = "";
 		pays = "";
-		codePostal = -1;
 		idAddress = -1;
 	}
 	
-	public Address(String numero, String rue, String ville, String pays, String région, int codePostal) {
+	public Address(String numero, String rue, String ville, String pays) {
 		this.idAddress = -1;
 		this.numero = numero;
 		this.rue = rue;
 		this.ville = ville;
 		this.pays = pays;
-		this.région = région;
-		this.codePostal = codePostal;
 	}
 	
 	public Address(Address a)
@@ -40,8 +36,6 @@ public class Address {
 		this.rue = a.rue;
 		this.ville = a.ville;
 		this.pays = a.pays;
-		this.région = a.région;
-		this.codePostal = a.codePostal;
 	}
 
 	/**
@@ -115,41 +109,12 @@ public class Address {
 	}
 
 	/**
-	 * @return the région
-	 */
-	public String getRégion() {
-		return région;
-	}
-
-	/**
-	 * @param région the région to set
-	 */
-	public void setRégion(String région) {
-		this.région = région;
-	}
-
-	/**
-	 * @return the codePostal
-	 */
-	public int getCodePostal() {
-		return codePostal;
-	}
-
-	/**
-	 * @param codePostal the codePostal to set
-	 */
-	public void setCodePostal(int codePostal) {
-		this.codePostal = codePostal;
-	}
-
-	/**
 	 * On affiche l'adresse complète
 	 */
 	@Override
 	public final String toString() {
 		String address = "";
-		address = getNumero() + " " + getRue() + " " + getCodePostal() + " " + getVille() + " " + getRégion() + " "
-				+ getPays();
+		address = getNumero() + " " + getRue() + " " + getVille() + " "+ getPays();
 		System.out.println(address);
 		return address;
 	}

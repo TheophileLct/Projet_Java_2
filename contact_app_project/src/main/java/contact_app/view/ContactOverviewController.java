@@ -27,6 +27,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
+
 public class ContactOverviewController implements Initializable {
 	
 	@FXML
@@ -60,9 +61,6 @@ public class ContactOverviewController implements Initializable {
 	TextField cityAddressField;
 	
 	@FXML
-	TextField regionAddressField;
-	
-	@FXML
 	TextField countryAddressField;
 
 	@FXML
@@ -86,11 +84,11 @@ public class ContactOverviewController implements Initializable {
 	@FXML
 	Button cancelButton;
 	
-	//ça en gros c'est la partie pour taper le nom de la personne 
+	// partie pour taper le nom de la personne 
 	@FXML
 	TextField filterTextField;
 	
-	//ça c'est la partie pour valider et faire le filtrage dans la liste. 
+	// partie pour valider et faire le filtrage dans la liste. 
 	@FXML
 	Button filterButton;
 
@@ -99,6 +97,9 @@ public class ContactOverviewController implements Initializable {
 	private boolean newContact;
 	private boolean onUpdateMode = false;
 	
+	/* (non-Javadoc)
+	 * @see javafx.fxml.Initializable#initialize(java.net.URL, java.util.ResourceBundle)
+	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		contactTable.setItems(ContactService.getContacts());
@@ -107,8 +108,10 @@ public class ContactOverviewController implements Initializable {
 		isEdibleTextField(false);
 	}
 	
-	//Cette méthode permet de définir l'action du bouton ajouter, 
-	//On le créer, l'ajoute à la table et update la liste afficher pour qu'il apparait. 
+	/**
+	 * Cette méthode permet de définir l'action du bouton ajouter, 
+	 * On le créer, l'ajoute à la table et update la liste afficher pour qu'il apparait. 
+	 */
 	@FXML
 	public void handleAddButton() {
 		System.out.println("Add bouton");
@@ -117,7 +120,9 @@ public class ContactOverviewController implements Initializable {
 		this.handleUpdateButton();
 	}
 	
-	//Cette méthode permet de définir l'action du bouton update
+	/**
+	 * Cette méthode permet de définir l'action du bouton update
+	 */
 	@FXML
 	public void handleUpdateButton() {
 		System.out.println("Update bouton");
@@ -125,9 +130,11 @@ public class ContactOverviewController implements Initializable {
 		this.updatingContact(true);
 		this.disableGUI(false, true);
 	}
-	
-	//Cette méthode permet de définir l'action du bouton supprimer, il affiche un message pour demander si on est sur de vouloir 
-	//supprimer le contact. 
+		
+	/**
+	 * Cette méthode permet de définir l'action du bouton supprimer, il affiche un message pour demander si on est sur de vouloir 
+	 * supprimer le contact.
+	 */
 	@FXML
 	public void handleDeleteButton() {
 		System.out.println("Delete bouton");
@@ -148,19 +155,25 @@ public class ContactOverviewController implements Initializable {
 	    }
 	}
 	
-	//Cette méthode permet de définir l'action du bouton sauvegarder
+	
+	/**
+	 *  Cette méthode va enclencher la sauvegarde du contact.
+	 */
 	@FXML
 	public void handleSaveButton() {
-		System.out.println("Save bouton");
 		this.updatingContact(false);
 		this.contactTable.setDisable(false);
 		this.saveContactDetails();
-		this.disableGUI(false, false);
 		refreshTable();
 		onUpdateMode = false;
 	}
 	
-	//Cette méthode permet de définir l'action lorsque une cellule est selectionnée
+	
+	private void updatingContact(boolean b) {}
+
+	/** Cette méthode permet de définir l'action lorsque une cellule est selectionnée
+	 * @param event
+	 */
 	@FXML
 	public void clickItem(MouseEvent event)
 	{
@@ -173,8 +186,6 @@ public class ContactOverviewController implements Initializable {
 			this.streetAddressField.setText(contactTable.getSelectionModel().getSelectedItem().getAddress().getRue());
 			this.numberField.setText(contactTable.getSelectionModel().getSelectedItem().getAddress().getNumero());
 			this.cityAddressField.setText(contactTable.getSelectionModel().getSelectedItem().getAddress().getVille());
-			if(this.regionAddressField != null)
-				this.regionAddressField.setText(contactTable.getSelectionModel().getSelectedItem().getAddress().getRégion());
 			this.countryAddressField.setText(contactTable.getSelectionModel().getSelectedItem().getAddress().getPays());
 			this.emailAddressField.setText(contactTable.getSelectionModel().getSelectedItem().getEmail_address());
 			this.birthDatePicker.setValue(contactTable.getSelectionModel().getSelectedItem().getBirth_date());
@@ -184,13 +195,15 @@ public class ContactOverviewController implements Initializable {
 		}
 	}
 	
+	/**
+	 * Cette méthode permet de sauvegarder les informations des contacts.
+	 */
 	public void saveContactDetails() {
 		if(this.newContact)
 		{
 			Address address = new Address(numberField.getText(),
 					streetAddressField.getText(), cityAddressField.getText(),
-					countryAddressField.getText(), "region",
-					44444);
+					countryAddressField.getText());
 			AddressService.addAddress(address);
 			
 			Contact contact = new Contact(lastNameField.getText(),
@@ -206,8 +219,7 @@ public class ContactOverviewController implements Initializable {
 			Address a = new Address(contactTable.getSelectionModel().getSelectedItem().getAddress());
 			Address newAddressInfo = new Address(numberField.getText(),
 					streetAddressField.getText(), cityAddressField.getText(),
-					countryAddressField.getText(), "region",
-					44444);
+					countryAddressField.getText());
 			Contact c = new Contact(contactTable.getSelectionModel().getSelectedItem());
 			Contact newContactInfo = new Contact(lastNameField.getText(),
 					firstNameField.getText(), nicknameField.getText(),
@@ -219,6 +231,10 @@ public class ContactOverviewController implements Initializable {
 		this.newContact = false;
 	}
 
+	
+	/**
+	 * Cette méthode permet de rafraîchir la table de contacts. 
+	 */
 	protected void refreshTable()
 	{
 		AddressService.getAddresses();
@@ -226,27 +242,31 @@ public class ContactOverviewController implements Initializable {
         this.contactTable.refresh();
 	}
 	
-	public void updatingContact(boolean b) {
-		
-		
-	}
-
+	/**
+	 * @param none
+	 * @param disable
+	 */
 	protected void disableGUI(boolean none, boolean disable) {
 		disableButton(none, disable);
 		isEdibleTextField(disable);
 	}
 	
-	//Permet de désactiver les boutons quand on ne doit pas ou peut pas les utiliser. 
+	/** Permet de désactiver les boutons quand on ne doit pas ou peut pas les utiliser. 
+	 * @param none
+	 * @param disable
+	 */
 	protected void disableButton(boolean none, boolean disable) {
 		this.addButton.setDisable(disable);
 		this.updateButton.setDisable(none ? !disable : disable);
 		this.deleteButton.setDisable(none ? !disable : disable);
 		this.filterButton.setDisable(disable);
 		this.saveButton.setDisable(!disable);
-		this.cancelButton.setDisable(!disable);
 	}
 	
-	//permet de voir si le texte est éditable (cad si on est en train de modifier un contact par exemple)
+
+	/** permet de voir si le texte est éditable (cad si on est en train de modifier un contact par exemple)
+	 * @param isEditable
+	 */
 	protected void isEdibleTextField(boolean isEditable) {
 		this.lastNameField.setEditable(isEditable);
 		this.firstNameField.setEditable(isEditable);
@@ -255,8 +275,6 @@ public class ContactOverviewController implements Initializable {
 		this.streetAddressField.setEditable(isEditable);
 		this.numberField.setEditable(isEditable);
 		this.cityAddressField.setEditable(isEditable);
-		if(this.regionAddressField != null)
-			this.regionAddressField.setEditable(isEditable);
 		this.countryAddressField.setEditable(isEditable);
 		this.emailAddressField.setEditable(isEditable);
 		this.birthDatePicker.setEditable(isEditable);
@@ -269,22 +287,18 @@ public class ContactOverviewController implements Initializable {
 			this.streetAddressField.clear();
 			this.numberField.clear();
 			this.cityAddressField.clear();
-			if(this.regionAddressField != null)
-				this.regionAddressField.clear();
 			this.countryAddressField.clear();
 			this.emailAddressField.clear();
 			this.birthDatePicker.getEditor().clear();
 		}
 	}
 	
-
+	/**
+	 * Cette méthode permet de faire recherche par nom.
+	 */
 	public void handleFilterButton() {
 		ContactService.getContactsConteningName(filterTextField.getText());
         this.contactTable.refresh();
-	}
-	
-	public void changePhoto() {
-		
 	}
 }
 
