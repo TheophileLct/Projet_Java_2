@@ -35,7 +35,7 @@
                         <TextField fx:id="phoneNumberField" editable="true" layoutX="56.0" layoutY="195.0" promptText="Phone number" />
                         <TextField fx:id="emailAddressField" editable="true" layoutX="56.0" layoutY="230.0" promptText="email" />
                         <DatePicker fx:id="birthDatePicker" editable="true" layoutX="62.0" layoutY="264.0" prefHeight="25.0" prefWidth="149.0" promptText="Birthdate" />
-                        <ImageView fx:id="photoImageView" fitHeight="56.0" fitWidth="59.0" layoutX="215.0" layoutY="274.0" onMouseClicked="#changePhoto" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="photoImageView" fitHeight="56.0" fitWidth="59.0" layoutX="215.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@crayon.png" />
                            </image>
@@ -44,7 +44,7 @@
                   </AnchorPane>
                   <Button fx:id="saveButton" disable="true" layoutX="178.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleSaveButton" style="-fx-background-color: rgb(255, 255, 167);" text="Save" />
                   <Button fx:id="cancelButton" disable="true" layoutX="232.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleDeleteButton" style="-fx-background-color: rgb(255, 255, 167);" text="Cancel" />
-                  <ComboBox fx:id="categoryComboBox" layoutX="74.0" layoutY="14.0" prefWidth="150.0" promptText="ComboBox?" style="-fx-background-color: rgb(255, 255, 167);" />
+                  <ComboBox fx:id="categoryComboBox" layoutX="74.0" layoutY="14.0" prefWidth="150.0" promptText="Category" style="-fx-background-color: rgb(255, 255, 167);" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="100.0" styleClass="anchor2" stylesheets="@contact.css">
@@ -59,7 +59,7 @@
                     </columns>
                   </TableView>
                   <TextField fx:id="filterTextField" layoutX="34.0" layoutY="14.0" prefHeight="25.0" prefWidth="149.0" promptText="Nickname / Name" />
-                  <ComboBox fx:id="filterComboBox" layoutX="34.0" layoutY="49.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: derive(#e10577,20%);;" />
+                  <ComboBox fx:id="filterComboBox" layoutX="34.0" layoutY="49.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: derive(#e10577,20%);" />
                   <Button fx:id="filterButton" layoutX="203.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleFilterButton" prefHeight="27.0" prefWidth="41.0" style="-fx-background-color: derive(#e10577,20%);;" text="Filter" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
