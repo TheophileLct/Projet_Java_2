@@ -145,7 +145,14 @@ public class Address {
 		String address = "";
 		address = getNumero() + " " + getRue() + " " + getCodePostal() + " " + getVille() + " " + getRégion() + " "
 				+ getPays();
-		System.out.println(address);
 		return address;
+	}
+	public boolean equalsParameters(Address a)
+	{
+		if(numero.equals(a.getNumero()) && rue.equals(a.getRue()) &&
+		ville.equals(a.getVille()) && codePostal == a.getCodePostal() &&
+		région.equals(a.getRégion()) && pays.equals(a.getPays()))
+			return true;
+		return false;
 	}
 }

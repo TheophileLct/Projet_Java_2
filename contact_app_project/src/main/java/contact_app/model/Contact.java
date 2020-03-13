@@ -206,7 +206,17 @@ public class Contact {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public boolean equalsParameters(Contact c)
+	{
+		if(lastname.equals(c.getLastname()) && firstname.equals(c.getFirstname()) &&
+		nickname.equals(c.getNickname()) && address.equalsParameters(c.getAddress()) &&
+		phone_number.equals(c.getPhone_number()) && email_address.equals(c.getEmail_address()) &&
+		birth_date.equals(c.getBirth_date()))
+			return true;
+		return false;
+	}
+	
 	//Import de contact à faire. ToString a retoucher certainement qd on aura + d'info. 
 	
 }

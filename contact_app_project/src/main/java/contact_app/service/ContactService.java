@@ -219,6 +219,18 @@ public class ContactService {
 			 e.printStackTrace();
 		 }
 	}
+	public static void clearDatabase()
+	{
+		ContactServiceHolder.INSTANCE.contacts.clear();
+		ContactServiceHolder.INSTANCE.contactsDataBase.clear();
+		try (Connection connection = ContactService.prepareDataSource().getConnection()) {
+			 try (PreparedStatement statement = connection.prepareStatement("delete from person")) {
+				 statement.executeUpdate();
+			 }
+		 }catch (SQLException e) {
+			 e.printStackTrace();
+		 }
+	}
 	
 	class ContactsListener implements ListChangeListener<Contact> {
 		@Override

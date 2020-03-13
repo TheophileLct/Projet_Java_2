@@ -107,8 +107,8 @@ public class AddressService {
 							 results.getString("number"),
 							 results.getString("street"),
 							 results.getString("town"),
-							 results.getString("region"),
 							 results.getString("pays"),
+							 results.getString("region"),
 							 results.getInt("postCode"));
 						address.setIdAddress(results.getInt("idaddress"));
 						AddressList.add(address);
@@ -171,6 +171,18 @@ public class AddressService {
 		 try (Connection connection = AddressService.prepareDataSource().getConnection()) {
 			 try (PreparedStatement statement = connection.prepareStatement("delete from address where idaddress=?")) {
 				 statement.setInt(1, idaddress);
+				 statement.executeUpdate();
+			 }
+		 }catch (SQLException e) {
+			 e.printStackTrace();
+		 }
+	}
+	public static void clearDatabase()
+	{
+		AddressServiceHolder.INSTANCE.Addresses.clear();
+		AddressServiceHolder.INSTANCE.AddressesDataBase.clear();
+		try (Connection connection = prepareDataSource().getConnection()) {
+			 try (PreparedStatement statement = connection.prepareStatement("delete from address")) {
 				 statement.executeUpdate();
 			 }
 		 }catch (SQLException e) {
