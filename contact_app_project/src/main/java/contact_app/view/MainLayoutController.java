@@ -43,7 +43,7 @@ public class MainLayoutController {
         }
     }
 	
-	
+	/** Voir explication dans contact.
 	public void importData() throws IOException{
         System.out.println("importation des données");
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -64,6 +64,7 @@ public class MainLayoutController {
             }
         }
     }
+	*/
 	
 	/**
 	 * Method allowing us to go back to the home screen
