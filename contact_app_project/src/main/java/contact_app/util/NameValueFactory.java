@@ -8,6 +8,10 @@ import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.util.Callback;
 
 public class NameValueFactory implements Callback<TableColumn.CellDataFeatures<Contact, String>, ObservableValue<String>> {
+	
+	/* (non-Javadoc)
+	 * @see javafx.util.Callback#call(java.lang.Object)
+	 */
 	@Override
 	public ObservableValue<String> call(CellDataFeatures<Contact, String> cellData) {
 		return new SimpleStringProperty(cellData.getValue().getLastname() + " " + cellData.getValue().getFirstname());

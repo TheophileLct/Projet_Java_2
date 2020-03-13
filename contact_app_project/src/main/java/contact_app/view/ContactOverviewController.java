@@ -27,6 +27,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
+
 public class ContactOverviewController implements Initializable {
 	
 	@FXML
@@ -80,11 +81,11 @@ public class ContactOverviewController implements Initializable {
 	@FXML
 	Button saveButton;
 	
-	//ça en gros c'est la partie pour taper le nom de la personne 
+	// partie pour taper le nom de la personne 
 	@FXML
 	TextField filterTextField;
 	
-	//ça c'est la partie pour valider et faire le filtrage dans la liste. 
+	// partie pour valider et faire le filtrage dans la liste. 
 	@FXML
 	Button filterButton;
 
@@ -93,6 +94,9 @@ public class ContactOverviewController implements Initializable {
 	private boolean newContact;
 	private boolean onUpdateMode = false;
 	
+	/* (non-Javadoc)
+	 * @see javafx.fxml.Initializable#initialize(java.net.URL, java.util.ResourceBundle)
+	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		contactTable.setItems(ContactService.getContacts());
@@ -101,8 +105,10 @@ public class ContactOverviewController implements Initializable {
 		isEdibleTextField(false);
 	}
 	
-	//Cette méthode permet de définir l'action du bouton ajouter, 
-	//On le créer, l'ajoute à la table et update la liste afficher pour qu'il apparait. 
+	/**
+	 * Cette méthode permet de définir l'action du bouton ajouter, 
+	 * On le créer, l'ajoute à la table et update la liste afficher pour qu'il apparait. 
+	 */
 	@FXML
 	public void handleAddButton() {
 		this.newContact = true;
@@ -110,16 +116,20 @@ public class ContactOverviewController implements Initializable {
 		this.handleUpdateButton();
 	}
 	
-	//Cette méthode permet de définir l'action du bouton update
+	/**
+	 * Cette méthode permet de définir l'action du bouton update
+	 */
 	@FXML
 	public void handleUpdateButton() {
 		onUpdateMode = true;
 		this.updatingContact(true);
 		this.disableGUI(false, true);
 	}
-	
-	//Cette méthode permet de définir l'action du bouton supprimer, il affiche un message pour demander si on est sur de vouloir 
-	//supprimer le contact. 
+		
+	/**
+	 * Cette méthode permet de définir l'action du bouton supprimer, il affiche un message pour demander si on est sur de vouloir 
+	 * supprimer le contact.
+	 */
 	@FXML
 	public void handleDeleteButton() {
 		Contact contact = this.contactTable.getSelectionModel().getSelectedItem();
@@ -140,18 +150,25 @@ public class ContactOverviewController implements Initializable {
 	    }
 	}
 	
-	//Cette méthode permet de définir l'action du bouton sauvegarder
+	
+	/**
+	 *  Cette méthode va enclencher la sauvegarde du contact.
+	 */
 	@FXML
 	public void handleSaveButton() {
 		this.updatingContact(false);
 		this.contactTable.setDisable(false);
 		this.saveContactDetails();
-		this.disableGUI(false, false);
 		refreshTable();
 		onUpdateMode = false;
 	}
 	
-	//Cette méthode permet de définir l'action lorsque une cellule est selectionnée
+	
+	private void updatingContact(boolean b) {}
+
+	/** Cette méthode permet de définir l'action lorsque une cellule est selectionnée
+	 * @param event
+	 */
 	@FXML
 	public void clickItem(MouseEvent event)
 	{
@@ -173,6 +190,9 @@ public class ContactOverviewController implements Initializable {
 		}
 	}
 	
+	/**
+	 * Cette méthode permet de sauvegarder les informations des contacts.
+	 */
 	public void saveContactDetails() {
 		if(this.newContact)
 		{
@@ -206,6 +226,10 @@ public class ContactOverviewController implements Initializable {
 		this.newContact = false;
 	}
 
+	
+	/**
+	 * Cette méthode permet de rafraîchir la table de contacts. 
+	 */
 	protected void refreshTable()
 	{
 		AddressService.getAddresses();
@@ -213,17 +237,19 @@ public class ContactOverviewController implements Initializable {
         this.contactTable.refresh();
 	}
 	
-	public void updatingContact(boolean b) {
-		
-		
-	}
-
+	/**
+	 * @param none
+	 * @param disable
+	 */
 	protected void disableGUI(boolean none, boolean disable) {
 		disableButton(none, disable);
 		isEdibleTextField(disable);
 	}
 	
-	//Permet de désactiver les boutons quand on ne doit pas ou peut pas les utiliser. 
+	/** Permet de désactiver les boutons quand on ne doit pas ou peut pas les utiliser. 
+	 * @param none
+	 * @param disable
+	 */
 	protected void disableButton(boolean none, boolean disable) {
 		this.addButton.setDisable(disable);
 		this.updateButton.setDisable(none ? !disable : disable);
@@ -232,7 +258,10 @@ public class ContactOverviewController implements Initializable {
 		this.saveButton.setDisable(!disable);
 	}
 	
-	//permet de voir si le texte est éditable (cad si on est en train de modifier un contact par exemple)
+
+	/** permet de voir si le texte est éditable (cad si on est en train de modifier un contact par exemple)
+	 * @param isEditable
+	 */
 	protected void isEdibleTextField(boolean isEditable) {
 		this.lastNameField.setEditable(isEditable);
 		this.firstNameField.setEditable(isEditable);
@@ -259,14 +288,12 @@ public class ContactOverviewController implements Initializable {
 		}
 	}
 	
-
+	/**
+	 * Cette méthode permet de faire recherche par nom.
+	 */
 	public void handleFilterButton() {
 		ContactService.getContactsConteningName(filterTextField.getText());
         this.contactTable.refresh();
-	}
-	
-	public void changePhoto() {
-		
 	}
 }
 

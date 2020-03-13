@@ -10,6 +10,10 @@ public class ViewService {
 		return getLoader(id).getRoot();
 	}
 
+	/**
+	 * @param id
+	 * @return 
+	 */
 	private static FXMLLoader getLoader(String id) {
 		try {
 			FXMLLoader loader = new FXMLLoader();

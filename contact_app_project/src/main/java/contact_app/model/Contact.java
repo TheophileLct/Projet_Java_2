@@ -13,6 +13,7 @@ import java.util.List;
 
 import contact_app.model.Address;
 
+
 public class Contact {
 	private int idperson;
 	private String lastname;
@@ -196,7 +197,7 @@ public class Contact {
 	 * @param directory
 	 */
 	public final void export(File directory)
-	{
+	{		
 		File file = new File(directory, getFirstname() + "_" + getLastname() + ".vcf");
 		try(Writer writer = new OutputStreamWriter(new FileOutputStream(file.toString()), "UTF-8"))
 		{

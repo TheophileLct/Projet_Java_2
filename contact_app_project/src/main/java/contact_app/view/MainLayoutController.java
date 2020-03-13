@@ -32,6 +32,9 @@ public class MainLayoutController {
 	    semaphore.acquire();
 	}
 
+	/**
+	 * Méthode qui va enclencher l'exportation des données contacts dans le dossier souhaité. 
+	 */
 	public void exportData()
     {
         File directory = dataFolder("export");
@@ -50,7 +53,9 @@ public class MainLayoutController {
         }
     }
 	
-	//** Voir explication dans contact.
+	/**
+	 * Méthode qui va enclencher l'importation des données contacts du dossier souhaité. 
+	 */
 	public void importData() throws IOException{
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.initOwner(StageService.getPrimaryStage());
@@ -78,7 +83,7 @@ public class MainLayoutController {
 	
 	
 	/**
-	 * Method allowing us to go back to the home screen
+	 * Methode permettant de retourner au home screen
 	 */
 	public void gotoHome() {
 		Node root = ViewService.getView("HomeScreen");
@@ -86,26 +91,30 @@ public class MainLayoutController {
 	}
 
 	/**
-	 * Method allowing us to go to the Contact view
+	 * Methode permettant de retourner à la vue de l'agenda de Contacts.
 	 */
 	public void gotoContactOverview() {
 		StageService.showView((Node)ViewService.getView("ContactOverview"));
 	}
 	
 	/**
-	 * Method allowing to quit the application
+	 * Methode permettant de quitter l'application.
 	 */
 	public void gotoCloseApplication() {
 		StageService.closeStage();
 	}
 	
 	/**
-	 * Method allowing to reach the help page
+	 * Methode permettant d'aller à la page About.
 	 */
 	public void gotoAboutPage() {
 		StageService.showView((Node)ViewService.getView("About"));
 	}
 	
+	/**
+	 * @param action
+	 * @return directory
+	 */
 	public File dataFolder(String action) {
         final DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Select the contact's folder to " + action);
