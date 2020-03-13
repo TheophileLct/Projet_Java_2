@@ -2,9 +2,14 @@ package contact_app.model;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.time.LocalDate;
+import java.util.Iterator;
+import java.util.List;
 
 import contact_app.model.Address;
 
@@ -30,6 +35,7 @@ public class Contact {
 		if(this.birth_date == null)
 			this.birth_date = LocalDate.now();
 	}
+	
 	public Contact(Contact c)
 	{
 		this.idperson = c.idperson;
@@ -164,6 +170,9 @@ public class Contact {
 		this.birth_date = birth_date;
 	}
 	
+	/**
+	 * Affiche les contacts sous forme de vCard
+	 */
 	@Override
 	public String toString()
 	{
@@ -182,6 +191,10 @@ public class Contact {
 		return string;
 	}
 	
+	/**
+	 * Permet de créer un fichier qui contenir nos contacts sous forme de vCard. 
+	 * @param directory
+	 */
 	public final void export(File directory)
 	{
 		File file = new File(directory, getFirstname() + "_" + getLastname() + ".vcf");
@@ -217,6 +230,98 @@ public class Contact {
 		return false;
 	}
 	
-	//Import de contact à faire. ToString a retoucher certainement qd on aura + d'info. 
-	
+	/**	Voici notre fonction import, nous ne l'avons pas laisser active car elle ne fonctionne pas avec l'adresse car nous l'avions écrite d'un seul bloc malheureusement. 
+	 * 
+	public static final Contact importFile(File file) throws IOException
+	{
+		List<String> lines = Files.readAllLines(file.toPath(), StandardCharsets.UTF_8);
+		Iterator<String> line = lines.iterator();
+		
+		if(!line.hasNext())
+		{
+			new IOException("The file " + file + " is empty.");
+		}
+		
+		String lastname = null;
+		String firstname = null;
+		String nickname = null;
+		String phone_number = null;
+		Address address = null;
+		String email_address = null;
+		LocalDate birth_date = null;
+		while(line.hasNext())
+		{
+			String data = line.next();
+			if(data.equals("BEGIN:VCARD") || data.regionMatches(0, "FN:", 0, 3))
+			{
+				continue;
+			}
+			else if(data.equals("END:VCARD"))
+			{
+				break;
+			}
+			
+			else
+			{
+				String[] dataSeperate = data.split(":");
+				switch (dataSeperate[0])
+				{
+					case "VERSION":
+						if(!dataSeperate[1].equals("4.0"))
+						{
+							new IOException("The file " + file + " is in a wrong version.");
+						}
+						break;
+					case "UID":
+					break;
+					case "N":
+						dataSeperate = dataSeperate[1].split(";");
+						lastname = dataSeperate[0];
+						firstname = dataSeperate[1];
+						break;
+					case "NICKNAME":
+						nickname = dataSeperate[1];
+						break;
+					case "EMAIL":
+						email_address = dataSeperate[1];
+						break;
+					case "BDAY":
+						birth_date = LocalDate.parse(dataSeperate[1]);
+						break;
+				}
+				
+				dataSeperate = data.split(";");
+				switch (dataSeperate[0])
+				{
+					case "TEL":
+						phone_number = dataSeperate[2].substring("VALUE=uri:tel:".length());
+						break;
+					case "ADR":
+						String pays = "";
+						String région = "";
+						String ville = "";
+						String rue = "";
+						String numero = "";
+						int codePostal =4444;
+						switch(dataSeperate.length)
+						{
+							case 9:
+								pays = dataSeperate[8];
+							case 7:
+								région = dataSeperate[6];
+							case 6:
+								ville = dataSeperate[5];
+							case 5:
+								rue = dataSeperate[4];
+							case 4:
+								numero = dataSeperate[3];
+						}
+						address = new Address(numero,rue, ville,pays,région, codePostal);
+						break;
+				}
+			}
+		}
+		return new Contact(lastname, firstname, nickname, phone_number, address, email_address, birth_date);
+	}
+	*/
 }

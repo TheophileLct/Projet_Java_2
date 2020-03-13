@@ -1,6 +1,6 @@
 /* change la couleur de la barre menu*/
 .menu-bar {
-    -fx-background-color: grey
+    -fx-background-color: grey;
    
 }
 
@@ -25,3 +25,4 @@
 .anchor2 {
     -fx-background-color:rgb(245, 149, 183);
 }
+
