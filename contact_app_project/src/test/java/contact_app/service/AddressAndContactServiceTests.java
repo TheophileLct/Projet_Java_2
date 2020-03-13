@@ -105,7 +105,7 @@ public class AddressAndContactServiceTests {
 		@Test
 		public void shouldAlsoClearContactsDatabase() throws Exception { 
 			LocalDate d = LocalDate.now();
-			Address a = new Address("17b", "rue des cochons", "St Michiou", "France", "region", 12345);
+			Address a = new Address("17b", "rue des cochons", "St Michiou", "France");
 			Contact c = new Contact("lastname", "firstname", "nickname", "0606060606", a, "email@address.com", d);
 			
 			try (Connection connection = prepareDataSource().getConnection()) {
@@ -176,9 +176,7 @@ public class AddressAndContactServiceTests {
 								 results.getString("number"),
 								 results.getString("street"),
 								 results.getString("town"),
-								 results.getString("region"),
-								 results.getString("pays"),
-								 results.getInt("postCode"));
+								 results.getString("pays"));
 							address.setIdAddress(results.getInt("idaddress"));
 							AddressList.add(address);
 						}
@@ -196,18 +194,16 @@ public class AddressAndContactServiceTests {
 
 		@Test
 		public void shouldAlsoClearAddressesDatabase() throws Exception { 
-			Address a = new Address("17b", "rue des cochons", "St Michiou", "France", "region", 12345);
+			Address a = new Address("17b", "rue des cochons", "St Michiou", "France");
 			
 			try (Connection connection = prepareDataSource().getConnection()) {
 				
-				 String sqlQuery = "insert into address(number, street, town, postCode, region, pays) " + "VALUES(?,?,?,?,?,?)";
+				 String sqlQuery = "insert into address(number, street, town, pays) " + "VALUES(?,?,?,?)";
 				 try (PreparedStatement statement = connection.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS)) {
 					 statement.setString(1, a.getNumero());
 					 statement.setString(2, a.getRue());
 					 statement.setString(3, a.getVille());
-					 statement.setInt(4, a.getCodePostal());
-					 statement.setString(5, a.getRégion());
-					 statement.setString(6, a.getPays());
+					 statement.setString(4, a.getPays());
 					 statement.executeUpdate();
 					 statement.getGeneratedKeys();
 				 }
@@ -228,9 +224,7 @@ public class AddressAndContactServiceTests {
 								 results.getString("number"),
 								 results.getString("street"),
 								 results.getString("town"),
-								 results.getString("region"),
-								 results.getString("pays"),
-								 results.getInt("postCode"));
+								 results.getString("region"));
 							address.setIdAddress(results.getInt("idaddress"));
 							AddressList.add(address);
 						}
@@ -264,7 +258,7 @@ public class AddressAndContactServiceTests {
 		@Test
 		public void shouldAddOneAddress() throws Exception { 
 			LocalDate d = LocalDate.now();
-			Address a = new Address("17b", "rue des cochons", "St Michiou", "France", "region", 12345);
+			Address a = new Address("17b", "rue des cochons", "St Michiou", "France");
 			
 			//Method tested
 			AddressService.addAddress(a);
@@ -279,9 +273,7 @@ public class AddressAndContactServiceTests {
 								 results.getString("number"),
 								 results.getString("street"),
 								 results.getString("town"),
-								 results.getString("pays"),
-								 results.getString("region"),
-								 results.getInt("postCode"));
+								 results.getString("pays"));
 							address.setIdAddress(results.getInt("idaddress"));
 							AddressList.add(address);
 						}
@@ -314,7 +306,7 @@ public class AddressAndContactServiceTests {
 		@Test
 		public void shouldReturnAListOfOneElement() throws Exception { 
 			LocalDate d = LocalDate.now();
-			Address a = new Address("17b", "rue des cochons", "St Michiou", "France", "region", 12345);
+			Address a = new Address("17b", "rue des cochons", "St Michiou", "France");
 			Contact c = new Contact("lastname", "firstname", "nickname", "0606060606", a, "email@address.com", d);
 
 			AddressService.addAddress(a);
@@ -336,7 +328,7 @@ public class AddressAndContactServiceTests {
 		@Test
 		public void shouldUpdateTheAddressInDatabase() throws Exception {
 			LocalDate d = LocalDate.now();
-			Address a = new Address("17b", "rue des cochons", "St Michiou", "France", "region", 12345);
+			Address a = new Address("17b", "rue des cochons", "St Michiou", "France");
 			Contact c = new Contact("lastname", "firstname", "nickname", "0606060606", a, "email@address.com", d);
 
 			AddressService.addAddress(a);
@@ -344,7 +336,7 @@ public class AddressAndContactServiceTests {
 
 			ObservableList<Address> addressList = AddressService.getAddresses();
 
-			Address aprime = new Address("34", "new street", "Rome", "Italie", "region 2", 44444);
+			Address aprime = new Address("34", "new street", "Rome", "Italie");
 			aprime.setIdAddress(addressList.get(0).getIdAddress());
 			
 			//Method tested
@@ -365,8 +357,8 @@ public class AddressAndContactServiceTests {
 		}
 		@Test
 		public void shouldDeleteTheAddressInDatabase() throws Exception {
-			Address a = new Address("13b", "rue des poires", "St Michiou", "France", "region", 12345);
-			Address b = new Address("17b", "rue des cochons", "St Michiou", "France", "region", 12345);
+			Address a = new Address("13b", "rue des poires", "St Michiou", "France");
+			Address b = new Address("17b", "rue des cochons", "St Michiou", "France");
 
 			AddressService.addAddress(a);
 			AddressService.addAddress(b);
@@ -413,7 +405,7 @@ public class AddressAndContactServiceTests {
 		@Test
 		public void shouldAddOneContact() throws Exception { 
 			LocalDate d = LocalDate.now();
-			Address a = new Address("17b", "rue des cochons", "St Michiou", "France", "region", 12345);
+			Address a = new Address("17b", "rue des cochons", "St Michiou", "France");
 			Contact c = new Contact("lastname", "firstname", "nickname", "0606060606", a, "email@address.com", d);
 			
 			AddressService.addAddress(a);
@@ -469,7 +461,7 @@ public class AddressAndContactServiceTests {
 		@Test
 		public void shouldReturnAListOfOneElement() throws Exception { 
 			LocalDate d = LocalDate.now();
-			Address a = new Address("17b", "rue des cochons", "St Michiou", "France", "region", 12345);
+			Address a = new Address("17b", "rue des cochons", "St Michiou", "France");
 			Contact c = new Contact("lastname", "firstname", "nickname", "0606060606", a, "email@address.com", d);
 
 			AddressService.addAddress(a);
@@ -490,7 +482,7 @@ public class AddressAndContactServiceTests {
 		@Test
 		public void shouldUpdateTheContactInDatabase() throws Exception {
 			LocalDate d = LocalDate.now();
-			Address a = new Address("17b", "rue des cochons", "St Michiou", "France", "region", 12345);
+			Address a = new Address("17b", "rue des cochons", "St Michiou", "France");
 			Contact c = new Contact("lastname", "firstname", "nickname", "0606060606", a, "email@address.com", d);
 
 			AddressService.addAddress(a);
@@ -521,11 +513,11 @@ public class AddressAndContactServiceTests {
 		@Test
 		public void shouldDeleteTheContactInDatabase() throws Exception {
 			LocalDate d = LocalDate.now();
-			Address a = new Address("17b", "rue des cochons", "St Michiou", "France", "region", 12345);
+			Address a = new Address("17b", "rue des cochons", "St Michiou", "France");
 			Contact c = new Contact("lastname", "firstname", "nickname", "0606060606", a, "email@address.com", d);
 			LocalDate dprime = LocalDate.now();
-			Address aprime = new Address("17b", "rue des cochons", "St Michiou", "France", "region", 12345);
-			Contact cprime = new Contact("lastname", "firstname", "nickname", "0606060606", aprime, "email@address.com", dprime);
+			Address aprime = new Address("17bPrime", "rue des cochonsPrime", "St MichiouPrime", "FrancePrime");
+			Contact cprime = new Contact("lastnamePrime", "firstnamePrime", "nicknamePrime", "0706060606", aprime, "emailPrime@address.com", dprime);
 
 			AddressService.addAddress(a);
 			ContactService.addContact(c);

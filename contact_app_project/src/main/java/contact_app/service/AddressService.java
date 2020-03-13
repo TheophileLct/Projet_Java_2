@@ -89,10 +89,6 @@ public class AddressService {
 			address.setRue(newInfo.getRue());
 		if(address.getVille() != newInfo.getVille())
 			address.setVille(newInfo.getVille());
-		if(address.getRégion() != newInfo.getRégion())
-			address.setRégion(newInfo.getRégion());
-		if(address.getCodePostal() != newInfo.getCodePostal())
-			address.setCodePostal(newInfo.getCodePostal());
 		if(address.getPays() != newInfo.getPays())
 			address.setPays(newInfo.getPays());
 		updateAddressToDatabase(address);
@@ -153,9 +149,7 @@ public class AddressService {
 							 results.getString("number"),
 							 results.getString("street"),
 							 results.getString("town"),
-							 results.getString("pays"),
-							 results.getString("region"),
-							 results.getInt("postCode"));
+							 results.getString("pays"));
 						address.setIdAddress(results.getInt("idaddress"));
 						AddressList.add(address);
 					}
@@ -173,18 +167,16 @@ public class AddressService {
 	 * @param address
 	 * @return
 	 */
-	private static int addAddressToDatabase(Address address)
+	public static int addAddressToDatabase(Address address)
 	{
 		try (Connection connection = AddressService.prepareDataSource().getConnection()) {
 			
-			 String sqlQuery = "insert into address(number, street, town, postCode, region, pays) " + "VALUES(?,?,?,?,?,?)";
+			 String sqlQuery = "insert into address(number, street, town, pays) " + "VALUES(?,?,?,?)";
 			 try (PreparedStatement statement = connection.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS)) {
 				 statement.setString(1, address.getNumero());
 				 statement.setString(2, address.getRue());
 				 statement.setString(3, address.getVille());
-				 statement.setInt(4, address.getCodePostal());
-				 statement.setString(5, address.getRégion());
-				 statement.setString(6, address.getPays());
+				 statement.setString(4, address.getPays());
 				 statement.executeUpdate();
 				 ResultSet ids = statement.getGeneratedKeys();
 				 
@@ -208,15 +200,13 @@ public class AddressService {
 	{
 		try (Connection connection = AddressService.prepareDataSource().getConnection()) {
 			
-			 String sqlQuery = "update address set number=?, street=?, town=?, postCode=?, region=?, pays=? where idaddress=?";
+			 String sqlQuery = "update address set number=?, street=?, town=?, pays=? where idaddress=?";
 			 try (PreparedStatement statement = connection.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS)) {
 				 statement.setString(1, address.getNumero());
 				 statement.setString(2, address.getRue());
 				 statement.setString(3, address.getVille());
-				 statement.setInt(4, address.getCodePostal());
-				 statement.setString(5, address.getRégion());
-				 statement.setString(6, address.getPays());
-				 statement.setInt(7, address.getIdAddress());
+				 statement.setString(4, address.getPays());
+				 statement.setInt(5, address.getIdAddress());
 				 statement.executeUpdate();
 				 ResultSet ids = statement.getGeneratedKeys();
 			 }
@@ -240,6 +230,9 @@ public class AddressService {
 			 e.printStackTrace();
 		 }
 	}
+	/**
+	 * Vide les adresses de la base de donnée et de la mémoire vive du programme.
+	 */
 	public static void clearDatabase()
 	{
 		AddressServiceHolder.INSTANCE.Addresses.clear();

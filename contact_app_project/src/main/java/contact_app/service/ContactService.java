@@ -76,7 +76,6 @@ public class ContactService {
 	 * @param contact
 	 */
 	public static void addContact(Contact contact) {
-		System.out.println("add contact");
 		ContactServiceHolder.INSTANCE.contactsDataBase.add(contact);
 		CopyDataBaseToShow(ContactServiceHolder.INSTANCE.contactsDataBase);
 	}
@@ -176,13 +175,6 @@ public class ContactService {
 	}
 	
 	/**
-	 * Vérifie si la liste de contact est nulle et la vide si non. 
-	 */
-	public static void clearContacts() {
-		if(ContactServiceHolder.INSTANCE.contacts != null) ContactServiceHolder.INSTANCE.contacts.clear();
-	}
-	
-	/**
 	 * Permet de filtrer la liste de contact en affichant celle qui contient ce que l'on souhaite
 	 * @param name
 	 * @return
@@ -224,7 +216,7 @@ public class ContactService {
 	 * Ajoute un contact à la bdd
 	 * @param contact
 	 */
-	private static void addContactToDatabase(Contact contact)
+	public static void addContactToDatabase(Contact contact)
 	{
 		try (Connection connection = ContactService.prepareDataSource().getConnection()) {
 			
@@ -292,6 +284,9 @@ public class ContactService {
 			 e.printStackTrace();
 		 }
 	}
+	/**
+	 * Vide les contacts de la base de donnée et de la mémoire vive du programme.
+	 */
 	public static void clearDatabase()
 	{
 		ContactServiceHolder.INSTANCE.contacts.clear();

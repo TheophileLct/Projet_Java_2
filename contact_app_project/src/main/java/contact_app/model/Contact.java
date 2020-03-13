@@ -209,7 +209,7 @@ public class Contact {
 			string += "NICKNAME:" + getNickname() + "\n";
 			string += "TEL;" + "TYPE=home,voice;" + "VALUE=uri:tel:" + getPhone_number() + "\n";
 			string += "EMAIL:" + getEmail_address() + "\n";
-			string += "ADR;" + "TYPE=HOME;" + "LABEL=" + getAddress();
+			string += "ADR;" + "TYPE=HOME;" + "LABEL=" + getAddress().toVCard();
 			string += "BDAY:" + getBirth_date() + "\n";
 			string += "END:VCARD";
 			writer.write(string);
@@ -230,8 +230,8 @@ public class Contact {
 		return false;
 	}
 	
-	/**	Voici notre fonction import, nous ne l'avons pas laisser active car elle ne fonctionne pas avec l'adresse car nous l'avions écrite d'un seul bloc malheureusement. 
-	 * 
+	//**	Voici notre fonction import, nous ne l'avons pas laisser active car elle ne fonctionne pas avec l'adresse car nous l'avions écrite d'un seul bloc malheureusement. 
+	  
 	public static final Contact importFile(File file) throws IOException
 	{
 		List<String> lines = Files.readAllLines(file.toPath(), StandardCharsets.UTF_8);
@@ -297,31 +297,28 @@ public class Contact {
 						phone_number = dataSeperate[2].substring("VALUE=uri:tel:".length());
 						break;
 					case "ADR":
-						String pays = "";
-						String région = "";
-						String ville = "";
-						String rue = "";
+						int numberStreetIndex = dataSeperate[4].indexOf(" ");
 						String numero = "";
-						int codePostal =4444;
+						String rue = "";
+						String ville = "";
+						String pays = "";
 						switch(dataSeperate.length)
 						{
 							case 9:
 								pays = dataSeperate[8];
-							case 7:
-								région = dataSeperate[6];
 							case 6:
 								ville = dataSeperate[5];
 							case 5:
-								rue = dataSeperate[4];
-							case 4:
-								numero = dataSeperate[3];
+								numero = dataSeperate[4].substring(0, numberStreetIndex);
+								rue = dataSeperate[4].substring(numberStreetIndex);
+								
 						}
-						address = new Address(numero,rue, ville,pays,région, codePostal);
+						address = new Address(numero,rue, ville,pays);
 						break;
 				}
 			}
 		}
 		return new Contact(lastname, firstname, nickname, phone_number, address, email_address, birth_date);
 	}
-	*/
+	
 }
