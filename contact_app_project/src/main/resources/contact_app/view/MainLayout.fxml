@@ -12,11 +12,18 @@
 			<menus>
 				<Menu mnemonicParsing="false" text="Menu">
 					<items>
-						<MenuItem mnemonicParsing="false" onAction="#gotoCloseApplication" text="Close" />
-						<MenuItem mnemonicParsing="false" onAction="#gotoAboutPage" text="About" />
 						<MenuItem mnemonicParsing="false" onAction="#gotoHome" text="Home" />
+						<MenuItem mnemonicParsing="false" onAction="#gotoAboutPage" text="About" />
+						<MenuItem mnemonicParsing="false" onAction="#gotoCloseApplication" text="Close" />
 					</items>
 				</Menu>
+				<Menu mnemonicParsing="false" text="File"> 
+					<items>
+						<MenuItem mnemonicParsing="false" onAction="#exportData" text="Export" />
+						<MenuItem mnemonicParsing="false" onAction="#importfile" text="Import" />
+					</items>
+				</Menu>
+				
 			</menus>
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
