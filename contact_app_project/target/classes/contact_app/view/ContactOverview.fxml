@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -12,15 +17,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="contact_app.view.ContactOverviewController">
+<AnchorPane prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="contact_app.view.ContactOverviewController">
    <children>
       <SplitPane dividerPositions="0.4737654320987654" prefHeight="450.0" prefWidth="650.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="347.0" styleClass="anchor1" stylesheets="@contact.css">
                <children>
-                  <AnchorPane layoutX="16.0" layoutY="70.0" prefHeight="314.0" prefWidth="271.0" styleClass="anchor" stylesheets="@contact.css">
+                  <AnchorPane layoutX="14.0" layoutY="58.0" prefHeight="314.0" prefWidth="271.0" styleClass="anchor" stylesheets="@contact.css">
                      <children>
-                        <ImageView fx:id="changePhotoImageView" fitHeight="25.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                        <ImageView fitHeight="25.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
                               <Image url="@../image/change-photo.PNG" />
                            </image>
@@ -35,16 +40,14 @@
                         <TextField fx:id="phoneNumberField" editable="true" layoutX="56.0" layoutY="195.0" promptText="Phone number" />
                         <TextField fx:id="emailAddressField" editable="true" layoutX="56.0" layoutY="230.0" promptText="email" />
                         <DatePicker fx:id="birthDatePicker" editable="true" layoutX="62.0" layoutY="264.0" prefHeight="25.0" prefWidth="149.0" promptText="Birthdate" />
-                        <ImageView fx:id="photoImageView" fitHeight="56.0" fitWidth="59.0" layoutX="215.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="56.0" fitWidth="59.0" layoutX="215.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@crayon.png" />
                            </image>
                         </ImageView>
                      </children>
                   </AnchorPane>
-                  <Button fx:id="saveButton" disable="true" layoutX="178.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleSaveButton" style="-fx-background-color: rgb(255, 255, 167);" text="Save" />
-                  <Button fx:id="cancelButton" disable="true" layoutX="232.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleDeleteButton" style="-fx-background-color: rgb(255, 255, 167);" text="Cancel" />
-                  <ComboBox fx:id="categoryComboBox" layoutX="74.0" layoutY="14.0" prefWidth="150.0" promptText="Category" style="-fx-background-color: rgb(255, 255, 167);" />
+                  <Button fx:id="saveButton" disable="true" layoutX="243.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleSaveButton" style="-fx-background-color: rgb(255, 255, 167);" text="Save" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="100.0" styleClass="anchor2" stylesheets="@contact.css">
@@ -58,14 +61,13 @@
                       <TableColumn fx:id="nicknameColumn" prefWidth="104.0" text="Nickname" />
                     </columns>
                   </TableView>
-                  <TextField fx:id="filterTextField" layoutX="34.0" layoutY="14.0" prefHeight="25.0" prefWidth="149.0" promptText="Nickname / Name" />
-                  <ComboBox fx:id="filterComboBox" layoutX="34.0" layoutY="49.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: derive(#e10577,20%);" />
-                  <Button fx:id="filterButton" layoutX="203.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleFilterButton" prefHeight="27.0" prefWidth="41.0" style="-fx-background-color: derive(#e10577,20%);;" text="Filter" textFill="WHITE">
+                  <TextField fx:id="filterTextField" layoutX="33.0" layoutY="28.0" prefHeight="25.0" prefWidth="149.0" promptText="Nickname / Name" />
+                  <Button fx:id="filterButton" layoutX="194.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleFilterButton" prefHeight="27.0" prefWidth="41.0" style="-fx-background-color: derive(#e10577,20%);;" text="Filter" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="76.0" fitWidth="69.0" layoutX="262.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="76.0" fitWidth="69.0" layoutX="250.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
 	                   <image>
 	  					  <Image url="@melo.png" />
 	  				  </image>
