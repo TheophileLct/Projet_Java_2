@@ -214,7 +214,7 @@ public class Contact {
 			e.printStackTrace();
 		}
 	}
-
-	//Import de contact à faire. ToString a retoucher certainement qd on aura + d'info. 
+	
+	
 	
 }

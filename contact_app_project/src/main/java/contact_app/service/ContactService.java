@@ -176,6 +176,13 @@ public class ContactService {
 	}
 	
 	/**
+	 * Vérifie si la liste de contact est nulle et la vide si non. 
+	 */
+	public static void clearContacts() {
+		if(ContactServiceHolder.INSTANCE.contacts != null) ContactServiceHolder.INSTANCE.contacts.clear();
+	}
+	
+	/**
 	 * Permet de filtrer la liste de contact en affichant celle qui contient ce que l'on souhaite
 	 * @param name
 	 * @return
