@@ -230,7 +230,6 @@ public class Contact {
 			new IOException("The file " + file + " is empty.");
 		}
 		
-		int id = -1;
 		String lastname = null;
 		String firstname = null;
 		String nickname = null;
@@ -262,8 +261,7 @@ public class Contact {
 						}
 						break;
 					case "UID":
-						id = Integer.parseInt(dataSeperate[1]);
-						break;
+					break;
 					case "N":
 						dataSeperate = dataSeperate[1].split(";");
 						lastname = dataSeperate[0];
