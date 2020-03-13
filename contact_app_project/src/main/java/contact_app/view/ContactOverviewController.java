@@ -159,6 +159,7 @@ public class ContactOverviewController implements Initializable {
 		refreshTable();
 		onUpdateMode = false;
 	}
+	
 	//Cette méthode permet de définir l'action lorsque une cellule est selectionnée
 	@FXML
 	public void clickItem(MouseEvent event)
@@ -244,6 +245,8 @@ public class ContactOverviewController implements Initializable {
 		this.saveButton.setDisable(!disable);
 		this.cancelButton.setDisable(!disable);
 	}
+	
+	//permet de voir si le texte est éditable (cad si on est en train de modifier un contact par exemple)
 	protected void isEdibleTextField(boolean isEditable) {
 		this.lastNameField.setEditable(isEditable);
 		this.firstNameField.setEditable(isEditable);

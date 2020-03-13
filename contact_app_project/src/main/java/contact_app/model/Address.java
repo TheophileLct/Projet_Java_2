@@ -22,6 +22,7 @@ public class Address {
 		codePostal = -1;
 		idAddress = -1;
 	}
+	
 	public Address(String numero, String rue, String ville, String pays, String région, int codePostal) {
 		this.idAddress = -1;
 		this.numero = numero;
@@ -31,6 +32,7 @@ public class Address {
 		this.région = région;
 		this.codePostal = codePostal;
 	}
+	
 	public Address(Address a)
 	{
 		this.idAddress = a.idAddress;
@@ -140,6 +142,9 @@ public class Address {
 		this.codePostal = codePostal;
 	}
 
+	/**
+	 * On affiche l'adresse complète
+	 */
 	@Override
 	public final String toString() {
 		String address = "";
