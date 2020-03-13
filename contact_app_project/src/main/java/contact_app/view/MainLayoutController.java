@@ -55,10 +55,10 @@ public class MainLayoutController {
             File directory = dataFolder("import");
             if (directory != null) {
                 File[] files = directory.listFiles();
-              ContactService.clearPersons();
+              //ContactService.clearPersons();
                 for (int i = 0; i < files.length; i++) {
                     if (files[i].getAbsolutePath().endsWith("vcf")) {
-                        ContactService.addPerson(Contact.importFile(files[i]), true);
+                       // ContactService.addPerson(Contact.importFile(files[i]), true);
                     }
                 }
             }

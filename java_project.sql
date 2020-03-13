@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 09 mars 2020 à 05:20
+-- Généré le :  ven. 13 mars 2020 à 13:27
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `address` (
   `region` varchar(60) COLLATE utf8_general_mysql500_ci DEFAULT NULL,
   `pays` varchar(60) COLLATE utf8_general_mysql500_ci DEFAULT NULL,
   PRIMARY KEY (`idaddress`)
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
 
 --
 -- Déchargement des données de la table `address`
@@ -47,9 +47,14 @@ CREATE TABLE IF NOT EXISTS `address` (
 INSERT INTO `address` (`idaddress`, `number`, `street`, `town`, `postCode`, `region`, `pays`) VALUES
 (13, '45', 'rue des navets', 'Croussi sur mer', 44444, 'France', 'region'),
 (12, '44', 'rue des choux', 'Lille', 44444, 'France', 'region'),
-(23, '556', 'Rue des avenues', 'City', 44444, 'region', 'Country'),
+(23, 'efee', 'fefe', 'fefef', 44444, 'region', 'efefef'),
 (15, '1AA', 'Constitution Hill', 'Londre', 44444, 'Angleterre', 'region'),
-(18, '666', 'rue des poires', 'Marchou St Gege', 44444, 'region', 'region');
+(18, '666', 'rue des poires', 'Marchou St Gege', 44444, 'region', 'region'),
+(24, 'efee', 'fefe', 'fefef', 44444, 'region', 'efefef'),
+(25, '1', 'place des résident', 'tortimerville', 44444, 'region', 'Ile deserte'),
+(26, '2', 'boulevard du chinchard', 'Voldia', 44444, 'region', 'ile déserte'),
+(27, '3', 'boulevard du Machaon', 'Enghein ', 44444, 'region', 'Ile deserte'),
+(28, '5', 'Place des résidents', 'Monarque', 44444, 'region', 'Ile déserte');
 
 -- --------------------------------------------------------
 
@@ -69,18 +74,17 @@ CREATE TABLE IF NOT EXISTS `person` (
   `birth_date` date DEFAULT NULL,
   PRIMARY KEY (`idperson`),
   KEY `idaddress` (`idaddress`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
 
 --
 -- Déchargement des données de la table `person`
 --
 
 INSERT INTO `person` (`idperson`, `lastname`, `firstname`, `nickname`, `phone_number`, `idaddress`, `email_address`, `birth_date`) VALUES
-(1, 'Bob', 'Bobby', 'BobbyBob', '0606060606', 12, 'e@mail.com', '2012-03-15'),
-(2, 'Dupont', 'Jean', 'Jiji', '0695475746', 13, 'email@mail.com', '2005-03-11'),
-(3, '2', 'Elisabeth', 'La reine', '+443031237300', 15, 'mail@e.com', '1926-04-21'),
-(5, 'Sauran', 'Radouin', 'zetta', '5755444774', 18, 'email@email.email', '1937-04-08'),
-(10, 'LastName', 'FirstName', 'NickName', '666', 23, 'email.email@email.email', '1876-04-07');
+(15, 'Laglisse', 'Keke', 'Jack', '0658954256', 28, 'laglisse.keke@animalcrossing.com', '2002-12-10'),
+(14, 'Blanche', 'Whitney', 'Louve', '0608854521', 27, 'blanche.whitney@animalcrossing.com', '2020-09-17'),
+(12, 'Nook', 'Tom', 'Tommy', '0604425689', 25, 'tom.nook@animalcrossing.com', '2001-05-30'),
+(13, 'Marie', 'Isabelle', 'Mary', '0602055884', 26, 'MarieIsabelle@animalcrossing.com', '2001-12-20');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
