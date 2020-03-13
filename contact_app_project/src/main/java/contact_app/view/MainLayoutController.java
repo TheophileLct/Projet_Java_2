@@ -73,7 +73,6 @@ public class MainLayoutController {
                     	Contact c = Contact.importFile(files[i]);
                     	c.getAddress().setIdAddress(-1*(i + 2));
                     	AddressService.addAddress(c.getAddress());
-                    	System.out.println(c.getAddress().getIdAddress());
                         ContactService.addContact(c);
                     }
             	}

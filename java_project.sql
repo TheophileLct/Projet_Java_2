@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 13 mars 2020 à 13:27
+-- Généré le :  ven. 13 mars 2020 à 17:34
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -34,8 +34,6 @@ CREATE TABLE IF NOT EXISTS `address` (
   `number` varchar(30) COLLATE utf8_general_mysql500_ci NOT NULL,
   `street` varchar(100) COLLATE utf8_general_mysql500_ci NOT NULL,
   `town` varchar(60) COLLATE utf8_general_mysql500_ci DEFAULT NULL,
-  `postCode` int(11) NOT NULL,
-  `region` varchar(60) COLLATE utf8_general_mysql500_ci DEFAULT NULL,
   `pays` varchar(60) COLLATE utf8_general_mysql500_ci DEFAULT NULL,
   PRIMARY KEY (`idaddress`)
 ) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
@@ -44,17 +42,11 @@ CREATE TABLE IF NOT EXISTS `address` (
 -- Déchargement des données de la table `address`
 --
 
-INSERT INTO `address` (`idaddress`, `number`, `street`, `town`, `postCode`, `region`, `pays`) VALUES
-(13, '45', 'rue des navets', 'Croussi sur mer', 44444, 'France', 'region'),
-(12, '44', 'rue des choux', 'Lille', 44444, 'France', 'region'),
-(23, 'efee', 'fefe', 'fefef', 44444, 'region', 'efefef'),
-(15, '1AA', 'Constitution Hill', 'Londre', 44444, 'Angleterre', 'region'),
-(18, '666', 'rue des poires', 'Marchou St Gege', 44444, 'region', 'region'),
-(24, 'efee', 'fefe', 'fefef', 44444, 'region', 'efefef'),
-(25, '1', 'place des résident', 'tortimerville', 44444, 'region', 'Ile deserte'),
-(26, '2', 'boulevard du chinchard', 'Voldia', 44444, 'region', 'ile déserte'),
-(27, '3', 'boulevard du Machaon', 'Enghein ', 44444, 'region', 'Ile deserte'),
-(28, '5', 'Place des résidents', 'Monarque', 44444, 'region', 'Ile déserte');
+INSERT INTO `address` (`idaddress`, `number`, `street`, `town`, `pays`) VALUES
+(25, '1', 'place des résident', 'tortimerville', 'Ile deserte'),
+(26, '2', 'boulevard du chinchard', 'Voldia', 'ile déserte'),
+(27, '3', 'boulevard du Machaon', 'Enghein ', 'Ile deserte'),
+(28, '5', 'Place des résidents', 'Monarque', 'Ile déserte');
 
 -- --------------------------------------------------------
 
