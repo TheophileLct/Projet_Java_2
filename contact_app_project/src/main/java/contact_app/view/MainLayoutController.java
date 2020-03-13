@@ -69,6 +69,7 @@ public class MainLayoutController {
             }
         }
     }
+	*/
 	
 	/**
 	 * Methode permettant de retourner au home screen

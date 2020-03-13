@@ -220,7 +220,8 @@ public class Contact {
 			e.printStackTrace();
 		}
 	}
-	
+	/**	Voici notre fonction import, nous ne l'avons pas laisser active car elle ne fonctionne pas avec l'adresse car nous l'avions écrite d'un seul bloc malheureusement. 
+	 * 
 	public static final Contact importFile(File file) throws IOException
 	{
 		List<String> lines = Files.readAllLines(file.toPath(), StandardCharsets.UTF_8);
@@ -231,7 +232,6 @@ public class Contact {
 			new IOException("The file " + file + " is empty.");
 		}
 		
-		int id = -1;
 		String lastname = null;
 		String firstname = null;
 		String nickname = null;
@@ -263,8 +263,7 @@ public class Contact {
 						}
 						break;
 					case "UID":
-						id = Integer.parseInt(dataSeperate[1]);
-						break;
+					break;
 					case "N":
 						dataSeperate = dataSeperate[1].split(";");
 						lastname = dataSeperate[0];
@@ -313,5 +312,5 @@ public class Contact {
 		}
 		return new Contact(lastname, firstname, nickname, phone_number, address, email_address, birth_date);
 	}
-	
+	*/
 }
