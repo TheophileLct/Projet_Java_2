@@ -36,6 +36,11 @@ public class ContactService {
 	protected static class ContactServiceHolder {
 		private static ContactService INSTANCE = new ContactService();
 	}
+	
+	/**
+	 * Copie la liste de la database pour l'afficher
+	 * @param list
+	 */
 	protected static void CopyDataBaseToShow(List<Contact> list)
 	{
 		ContactServiceHolder.INSTANCE.contacts.clear();
@@ -46,26 +51,50 @@ public class ContactService {
 			ContactServiceHolder.INSTANCE.contacts.get(i).setAddress(a);
 		}
 	}
+	
+	/**
+	 * Permet d'obtenir les contacts de la bdd
+	 * @return
+	 */
 	public static ObservableList<Contact> getContacts() {
 		CopyDataBaseToShow(ContactServiceHolder.INSTANCE.contactsDataBase);
 		return ContactServiceHolder.INSTANCE.contacts;
 	}
+	
+	/**
+	 * Permet de filtrer les contacts
+	 * @param name
+	 * @return
+	 */
 	public static ObservableList<Contact> getContactsConteningName(String name) {
 		CopyDataBaseToShow(getContactsFromDatabaseConteningName(name));
 		return ContactServiceHolder.INSTANCE.contacts;
 	}
 	
+	/**
+	 * Permet d'ajouter un contact
+	 * @param contact
+	 */
 	public static void addContact(Contact contact) {
 		System.out.println("add contact");
 		ContactServiceHolder.INSTANCE.contactsDataBase.add(contact);
 		CopyDataBaseToShow(ContactServiceHolder.INSTANCE.contactsDataBase);
 	}
 	
+	/**
+	 * Permet de supprimer un contact
+	 * @param contact
+	 */
 	public static void deleteContact(Contact contact) {
 		ContactServiceHolder.INSTANCE.contactsDataBase.remove(contact);
 		CopyDataBaseToShow(ContactServiceHolder.INSTANCE.contactsDataBase);
 	}
 	
+	/**
+	 * Permet de mettre à jour les informations d'un contact 
+	 * @param newInfo
+	 * @param id
+	 */
 	public static void updateContact(Contact newInfo, int id) {
 		Contact contact = findById(id);
 		if(contact == null)
@@ -85,12 +114,23 @@ public class ContactService {
 		updateContactToDatabase(contact);
 		CopyDataBaseToShow(ContactServiceHolder.INSTANCE.contactsDataBase);
 	}
+	
+	/**
+	 * Permet d'obtenir un contact par son ID 
+	 * @param idperson
+	 * @return
+	 */
 	private static Contact findById(int idperson) {
 		for(Contact c : ContactServiceHolder.INSTANCE.contactsDataBase)
 			if(c.getIdperson() == idperson)
 				return c;
 		return null;
 	}
+	
+	/**
+	 * Permet de se connecter et d'obtenir les infos de la bdd
+	 * @return
+	 */
 	private static MysqlDataSource prepareDataSource()
 	{
 		MysqlDataSource mysqlDataSource = new MysqlDataSource();
@@ -101,6 +141,11 @@ public class ContactService {
 		mysqlDataSource.setPassword("");
 		return mysqlDataSource;
 	}
+	
+	/**
+	 * Permet d'obtenir dans une liste tout les contacts de la bdd. 
+	 * @return
+	 */
 	private static List<Contact> getAllContactsFromDatabase()
 	{
 		List<Contact> contactList = new ArrayList<>();
@@ -129,6 +174,12 @@ public class ContactService {
 		 }
 		 return contactList;
 	}
+	
+	/**
+	 * Permet de filtrer la liste de contact en affichant celle qui contient ce que l'on souhaite
+	 * @param name
+	 * @return
+	 */
 	private static List<Contact> getContactsFromDatabaseConteningName(String name)
 	{
 		List<Contact> contactList = new ArrayList<>();
@@ -161,6 +212,11 @@ public class ContactService {
 		 }
 		 return contactList;
 	}
+	
+	/**
+	 * Ajoute un contact à la bdd
+	 * @param contact
+	 */
 	private static void addContactToDatabase(Contact contact)
 	{
 		try (Connection connection = ContactService.prepareDataSource().getConnection()) {
@@ -187,6 +243,11 @@ public class ContactService {
 		}
 		return;
 	}
+	
+	/**
+	 * Permet de mettre à jour les données d'un contact dans la bdd
+	 * @param contact
+	 */
 	private static void updateContactToDatabase(Contact contact)
 	{
 		try (Connection connection = ContactService.prepareDataSource().getConnection()) {
@@ -209,6 +270,11 @@ public class ContactService {
 		}
 		return;
 	}
+	
+	/**
+	 * Permet de supprimer un contact par son id
+	 * @param idperson
+	 */
 	public void delete(Integer idperson) {
 		 try (Connection connection = ContactService.prepareDataSource().getConnection()) {
 			 try (PreparedStatement statement = connection.prepareStatement("delete from person where idperson=?")) {
@@ -220,6 +286,10 @@ public class ContactService {
 		 }
 	}
 	
+	/**
+	 * Permet de réagir en fonction des actions de l'utilisateur.
+	 *
+	 */
 	class ContactsListener implements ListChangeListener<Contact> {
 		@Override
 		public void onChanged(Change<? extends Contact> changedContact) {

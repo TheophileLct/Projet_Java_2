@@ -30,6 +30,7 @@ public class Contact {
 		if(this.birth_date == null)
 			this.birth_date = LocalDate.now();
 	}
+	
 	public Contact(Contact c)
 	{
 		this.idperson = c.idperson;
@@ -164,6 +165,9 @@ public class Contact {
 		this.birth_date = birth_date;
 	}
 	
+	/**
+	 * Affiche les contacts sous forme de vCard
+	 */
 	@Override
 	public String toString()
 	{
@@ -182,6 +186,10 @@ public class Contact {
 		return string;
 	}
 	
+	/**
+	 * Permet de créer un fichier qui contenir nos contacts sous forme de vCard. 
+	 * @param directory
+	 */
 	public final void export(File directory)
 	{
 		File file = new File(directory, getFirstname() + "_" + getLastname() + ".vcf");
