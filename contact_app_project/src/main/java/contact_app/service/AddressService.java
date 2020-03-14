@@ -11,13 +11,10 @@ import java.util.List;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 import contact_app.model.Address;
-import contact_app.model.Contact;
-import contact_app.service.ContactService.ContactServiceHolder;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.collections.ListChangeListener.Change;
 
 public class AddressService {
 	private ObservableList<Address> Addresses;

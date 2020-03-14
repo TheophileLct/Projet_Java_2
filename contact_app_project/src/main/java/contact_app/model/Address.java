@@ -1,9 +1,5 @@
 package contact_app.model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class Address {
 	private int idAddress;
 	private String numero; // String car par ex 10b.

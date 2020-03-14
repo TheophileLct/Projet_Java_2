@@ -2,16 +2,11 @@ package contact_app.view;
 
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.time.LocalDate;
 import java.util.Optional;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
 
-import contact_app.model.Address;
 import contact_app.model.Contact;
 import contact_app.service.StageService;
 import contact_app.service.ViewService;
@@ -19,7 +14,6 @@ import contact_app.service.AddressService;
 import contact_app.service.ContactService;
 import javafx.scene.Node;
 import javafx.application.Platform;
-import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.DirectoryChooser;

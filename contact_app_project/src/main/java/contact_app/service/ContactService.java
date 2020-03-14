@@ -5,8 +5,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -14,7 +12,6 @@ import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 import contact_app.model.Address;
 import contact_app.model.Contact;
-import contact_app.service.AddressService.AddressServiceHolder;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
